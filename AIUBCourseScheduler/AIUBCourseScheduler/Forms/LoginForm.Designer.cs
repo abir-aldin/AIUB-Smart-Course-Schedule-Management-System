@@ -37,9 +37,9 @@
             label1.Font = new Font("Papyrus", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(116, 153);
             label1.Name = "label1";
-            label1.Size = new Size(621, 126);
+            label1.Size = new Size(555, 126);
             label1.TabIndex = 0;
-            label1.Text = "Welcome SAS";
+            label1.Text = "Welcome Trio";
             // 
             // LoginForm
             // 
