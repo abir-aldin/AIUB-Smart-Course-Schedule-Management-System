@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -41,12 +42,23 @@
             label1.TabIndex = 0;
             label1.Text = "Welcome Trio";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Papyrus", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(251, 246);
+            label2.Name = "label2";
+            label2.Size = new Size(331, 126);
+            label2.TabIndex = 1;
+            label2.Text = "#SAS";
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(847, 465);
+            Controls.Add(label2);
             Controls.Add(label1);
             Name = "LoginForm";
             Text = "LoginForm";
@@ -57,5 +69,6 @@
         #endregion
 
         private Label label1;
+        private Label label2;
     }
 }
