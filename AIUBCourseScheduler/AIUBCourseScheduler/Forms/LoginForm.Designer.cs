@@ -36,7 +36,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Papyrus", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(147, 132);
+            label1.Location = new Point(49, 99);
             label1.Name = "label1";
             label1.Size = new Size(555, 126);
             label1.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Papyrus", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(251, 246);
+            label2.Location = new Point(153, 213);
             label2.Name = "label2";
             label2.Size = new Size(331, 126);
             label2.TabIndex = 1;
@@ -57,7 +57,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(847, 465);
+            ClientSize = new Size(990, 579);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "LoginForm";
