@@ -326,7 +326,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.Navy;
-            label13.Location = new Point(724, 121);
+            label13.Location = new Point(724, 133);
             label13.Name = "label13";
             label13.Size = new Size(75, 23);
             label13.TabIndex = 36;
