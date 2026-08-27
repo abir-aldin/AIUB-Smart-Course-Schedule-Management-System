@@ -39,33 +39,21 @@
             label8 = new Label();
             label9 = new Label();
             label11 = new Label();
-            pictureBox1 = new PictureBox();
             label10 = new Label();
             label12 = new Label();
             button2 = new Button();
-            pictureBox2 = new PictureBox();
             button1 = new Button();
-            pictureBox3 = new PictureBox();
             textBox1 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             button3 = new Button();
-            pictureBox4 = new PictureBox();
             label13 = new Label();
             label14 = new Label();
-            pictureBox5 = new PictureBox();
             label15 = new Label();
             label16 = new Label();
             button4 = new Button();
-            pictureBox6 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -182,16 +170,6 @@
             label11.TabIndex = 15;
             label11.Text = "Phone :";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.pngtree_avatar_icon_profile_icon_member_login_vector_isolated_png_image_5247852;
-            pictureBox1.Location = new Point(25, 191);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(171, 170);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 22;
-            pictureBox1.TabStop = false;
-            // 
             // label10
             // 
             label10.AutoSize = true;
@@ -224,16 +202,6 @@
             button2.Text = "Edit Profile";
             button2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.images1;
-            pictureBox2.Location = new Point(46, 581);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(36, 30);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 26;
-            pictureBox2.TabStop = false;
-            // 
             // button1
             // 
             button1.BackColor = Color.RoyalBlue;
@@ -245,16 +213,6 @@
             button1.TabIndex = 27;
             button1.Text = "Save Changes";
             button1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.istockphoto_2190953346_612x612;
-            pictureBox3.Location = new Point(364, 581);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(43, 36);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 28;
-            pictureBox3.TabStop = false;
             // 
             // textBox1
             // 
@@ -311,16 +269,6 @@
             button3.Text = "Cancel";
             button3.UseVisualStyleBackColor = true;
             // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = Properties.Resources.images__1_;
-            pictureBox4.Location = new Point(702, 584);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(29, 33);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 35;
-            pictureBox4.TabStop = false;
-            // 
             // label13
             // 
             label13.AutoSize = true;
@@ -343,16 +291,6 @@
             label14.TabIndex = 37;
             label14.Text = "Change Password";
             label14.Click += label14_Click;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = Properties.Resources.istockphoto_2204974549_612x612;
-            pictureBox5.Location = new Point(771, 186);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(94, 89);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 38;
-            pictureBox5.TabStop = false;
             // 
             // label15
             // 
@@ -386,43 +324,27 @@
             button4.Text = "Change Password";
             button4.UseVisualStyleBackColor = true;
             // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = Properties.Resources.images__2_;
-            pictureBox6.Location = new Point(724, 362);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(22, 30);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 42;
-            pictureBox6.TabStop = false;
-            // 
             // AdminProfileControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(963, 737);
-            Controls.Add(pictureBox6);
             Controls.Add(button4);
             Controls.Add(label16);
             Controls.Add(label15);
-            Controls.Add(pictureBox5);
             Controls.Add(label14);
             Controls.Add(label13);
-            Controls.Add(pictureBox4);
             Controls.Add(button3);
             Controls.Add(textBox6);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox1);
-            Controls.Add(pictureBox3);
             Controls.Add(button1);
-            Controls.Add(pictureBox2);
             Controls.Add(button2);
             Controls.Add(label12);
             Controls.Add(label10);
-            Controls.Add(pictureBox1);
             Controls.Add(label11);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -436,12 +358,6 @@
             Controls.Add(label1);
             Name = "AdminProfileControl";
             Text = "AdminProfileControl";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -459,26 +375,20 @@
         private Label label8;
         private Label label9;
         private Label label11;
-        private PictureBox pictureBox1;
         private Label label10;
         private Label label12;
         private Button button2;
-        private PictureBox pictureBox2;
         private Button button1;
-        private PictureBox pictureBox3;
         private TextBox textBox1;
         private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
         private TextBox textBox6;
         private Button button3;
-        private PictureBox pictureBox4;
         private Label label13;
         private Label label14;
-        private PictureBox pictureBox5;
         private Label label15;
         private Label label16;
         private Button button4;
-        private PictureBox pictureBox6;
     }
 }
