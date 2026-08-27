@@ -14,5 +14,15 @@ namespace AIUBCourseScheduler.UserControls.Student
         {
             InitializeComponent();
         }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GenerateScheduleControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
