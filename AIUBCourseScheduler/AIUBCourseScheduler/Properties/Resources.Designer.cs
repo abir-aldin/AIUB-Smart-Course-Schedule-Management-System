@@ -133,6 +133,36 @@ namespace AIUBCourseScheduler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_1_49_09_PM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 1.49.09 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_2_20_49_PM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 2.20.49 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_2_201 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 2.201", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WIN_20260409_12_39_02_Pro {
             get {
                 object obj = ResourceManager.GetObject("WIN_20260409_12_39_02_Pro", resourceCulture);

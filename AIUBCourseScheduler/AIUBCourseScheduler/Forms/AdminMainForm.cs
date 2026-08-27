@@ -14,5 +14,10 @@ namespace AIUBCourseScheduler.Forms
         {
             InitializeComponent();
         }
+
+        private void AdminMainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
