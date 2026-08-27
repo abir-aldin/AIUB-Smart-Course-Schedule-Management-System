@@ -193,6 +193,9 @@ namespace AIUBCourseScheduler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_1_49_09_PM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 1.49.09 PM", resourceCulture);
         internal static System.Drawing.Bitmap pngtree_green_check_mark_icon_flat_style_png_image_1986021 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-green-check-mark-icon-flat-style-png-image_1986021", resourceCulture);
@@ -203,6 +206,9 @@ namespace AIUBCourseScheduler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_2_20_49_PM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 2.20.49 PM", resourceCulture);
         internal static System.Drawing.Bitmap pngtree_green_check_mark_icon_flat_style_png_image_1986021__1_ {
             get {
                 object obj = ResourceManager.GetObject("pngtree-green-check-mark-icon-flat-style-png-image_1986021 (1)", resourceCulture);
@@ -213,6 +219,9 @@ namespace AIUBCourseScheduler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_2_201 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 2.201", resourceCulture);
         internal static System.Drawing.Bitmap pngtree_red_cross_vector_icon_no_symbol_rejected_cancel_negative_sign_deny_png_image_3216548 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-red-cross-vector-icon-no-symbol-rejected-cancel-negative-sign-deny-png-im" +
