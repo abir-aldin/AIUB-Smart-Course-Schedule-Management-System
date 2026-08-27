@@ -38,11 +38,9 @@
             button5 = new Button();
             button1 = new Button();
             label2 = new Label();
-            pictureBox1 = new PictureBox();
             label1 = new Label();
             panel2 = new Panel();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -57,7 +55,6 @@
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -186,16 +183,6 @@
             label2.TabIndex = 2;
             label2.Text = "ADMIN PANEL";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.WhatsApp_Image_2026_08_27_at_2_20_49_PM;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(73, 93);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             label1.Font = new Font("Segoe UI Black", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -230,7 +217,6 @@
             Text = "AdminMainForm";
             Load += AdminMainForm_Load;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -238,7 +224,6 @@
         #endregion
 
         private Panel panel1;
-        private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
         private Button button1;

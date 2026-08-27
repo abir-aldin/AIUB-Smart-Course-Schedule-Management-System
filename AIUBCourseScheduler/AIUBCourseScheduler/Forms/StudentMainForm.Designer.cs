@@ -39,10 +39,8 @@
             button1 = new Button();
             label2 = new Label();
             label1 = new Label();
-            pictureBox1 = new PictureBox();
             panel3 = new Panel();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -58,7 +56,6 @@
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(220, 784);
@@ -197,16 +194,6 @@
             label1.TabIndex = 1;
             label1.Text = "   AIUB SMART \r\n      COURSE\r\n    SCHEDULE";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.WhatsApp_Image_2026_08_27_at_2_201;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(77, 93);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // panel3
             // 
             panel3.BackColor = SystemColors.ControlDarkDark;
@@ -229,7 +216,6 @@
             Load += StudentMainForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -237,7 +223,6 @@
 
         private Panel panel1;
         private Label label1;
-        private PictureBox pictureBox1;
         private Label label2;
         private Button button1;
         private Button button5;
