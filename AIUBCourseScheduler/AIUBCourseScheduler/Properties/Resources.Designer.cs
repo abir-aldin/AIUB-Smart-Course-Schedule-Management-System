@@ -63,6 +63,46 @@ namespace AIUBCourseScheduler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _11412573 {
+            get {
+                object obj = ResourceManager.GetObject("11412573", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _114125731 {
+            get {
+                object obj = ResourceManager.GetObject("114125731", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cross_7103359_1280 {
+            get {
+                object obj = ResourceManager.GetObject("cross-7103359_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_pending_yellow_sandclock_icon_27536_thumb {
+            get {
+                object obj = ResourceManager.GetObject("free-pending-yellow-sandclock-icon-27536-thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap images {
             get {
                 object obj = ResourceManager.GetObject("images", resourceCulture);
@@ -103,6 +143,26 @@ namespace AIUBCourseScheduler.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap images2 {
+            get {
+                object obj = ResourceManager.GetObject("images2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap istockphoto_1146631960_612x612 {
+            get {
+                object obj = ResourceManager.GetObject("istockphoto-1146631960-612x612", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap istockphoto_2190953346_612x612 {
             get {
                 object obj = ResourceManager.GetObject("istockphoto-2190953346-612x612", resourceCulture);
@@ -136,6 +196,9 @@ namespace AIUBCourseScheduler.Properties {
         internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_1_49_09_PM {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 1.49.09 PM", resourceCulture);
+        internal static System.Drawing.Bitmap pngtree_green_check_mark_icon_flat_style_png_image_1986021 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-green-check-mark-icon-flat-style-png-image_1986021", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +209,9 @@ namespace AIUBCourseScheduler.Properties {
         internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_2_20_49_PM {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 2.20.49 PM", resourceCulture);
+        internal static System.Drawing.Bitmap pngtree_green_check_mark_icon_flat_style_png_image_1986021__1_ {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-green-check-mark-icon-flat-style-png-image_1986021 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +222,20 @@ namespace AIUBCourseScheduler.Properties {
         internal static System.Drawing.Bitmap WhatsApp_Image_2026_08_27_at_2_201 {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2026-08-27 at 2.201", resourceCulture);
+        internal static System.Drawing.Bitmap pngtree_red_cross_vector_icon_no_symbol_rejected_cancel_negative_sign_deny_png_image_3216548 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-red-cross-vector-icon-no-symbol-rejected-cancel-negative-sign-deny-png-im" +
+                        "age_3216548", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_vector_view_icon_png_image_4143886 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-vector-view-icon-png-image_4143886", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
