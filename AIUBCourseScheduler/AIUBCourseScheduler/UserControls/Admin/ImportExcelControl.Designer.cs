@@ -31,8 +31,6 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             label4 = new Label();
             label3 = new Label();
             button1 = new Button();
@@ -41,7 +39,6 @@
             button2 = new Button();
             label7 = new Label();
             label6 = new Label();
-            pictureBox3 = new PictureBox();
             label5 = new Label();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
@@ -54,10 +51,7 @@
             ViewDetails = new DataGridViewButtonColumn();
             label9 = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -86,8 +80,6 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ButtonHighlight;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
@@ -95,26 +87,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(403, 166);
             panel1.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.images__5_;
-            pictureBox1.Location = new Point(162, 7);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(60, 43);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources._10624871;
-            pictureBox2.Location = new Point(119, 119);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(31, 33);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
             // 
             // label4
             // 
@@ -157,7 +129,6 @@
             panel2.Controls.Add(button2);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(pictureBox3);
             panel2.Controls.Add(label5);
             panel2.Location = new Point(543, 114);
             panel2.Name = "panel2";
@@ -177,7 +148,6 @@
             // 
             // button2
             // 
-            button2.BackgroundImage = Properties.Resources.images__6_5;
             button2.BackgroundImageLayout = ImageLayout.Zoom;
             button2.Location = new Point(299, 45);
             button2.Name = "button2";
@@ -205,16 +175,6 @@
             label6.Size = new Size(156, 23);
             label6.TabIndex = 4;
             label6.Text = "Upload a excel file ";
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.bf335ef5883876c2423a25234111289b;
-            pictureBox3.Location = new Point(3, 39);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(72, 66);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 4;
-            pictureBox3.TabStop = false;
             // 
             // label5
             // 
@@ -325,11 +285,8 @@
             Load += ImportExcelControl_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -345,11 +302,8 @@
         private Label label3;
         private Label label4;
         private Button button1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
         private Panel panel2;
         private Label label5;
-        private PictureBox pictureBox3;
         private Label label8;
         private Label label7;
         private Label label6;
