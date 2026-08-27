@@ -118,28 +118,58 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="images (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imageicon2\AdminUser\images (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="images2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imageicon2\AdminUser\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_5247852" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imageicon2\AdminUser\pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_5247852.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WIN_20260409_12_39_02_Pro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WIN_20260409_12_39_02_Pro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="istockphoto-1146631960-612x612" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\istockphoto-1146631960-612x612.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="istockphoto-2204974549-612x612" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imageicon2\AdminUser\istockphoto-2204974549-612x612.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="images (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\images (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imageicon2\AdminUser\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngtree-green-check-mark-icon-flat-style-png-image_1986021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\pngtree-green-check-mark-icon-flat-style-png-image_1986021.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="11412573" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\11412573.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\images.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WIN_20260409_12_39_02_Pro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WIN_20260409_12_39_02_Pro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngtree-red-cross-vector-icon-no-symbol-rejected-cancel-negative-sign-deny-png-image_3216548" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\pngtree-red-cross-vector-icon-no-symbol-rejected-cancel-negative-sign-deny-png-image_3216548.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="istockphoto-2190953346-612x612" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imageicon2\AdminUser\istockphoto-2190953346-612x612.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imageicon2\AdminUser\images (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pngtree-vector-view-icon-png-image_4143886" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\pngtree-vector-view-icon-png-image_4143886.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="free-pending-yellow-sandclock-icon-27536-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\free-pending-yellow-sandclock-icon-27536-thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\images (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngtree-green-check-mark-icon-flat-style-png-image_1986021 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\pngtree-green-check-mark-icon-flat-style-png-image_1986021 (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="114125731" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\11412573.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_5247852" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_5247852.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cross-7103359_1280" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imageicon2\AdminUser\cross-7103359_1280.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
