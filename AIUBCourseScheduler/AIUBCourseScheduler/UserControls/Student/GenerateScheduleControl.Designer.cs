@@ -33,20 +33,19 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             label3 = new Label();
             groupBox1 = new GroupBox();
-            label4 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            label5 = new Label();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
-            label6 = new Label();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
             checkBox3 = new CheckBox();
+            checkBox2 = new CheckBox();
+            checkBox1 = new CheckBox();
+            label6 = new Label();
+            numericUpDown3 = new NumericUpDown();
+            numericUpDown2 = new NumericUpDown();
+            label5 = new Label();
+            numericUpDown1 = new NumericUpDown();
+            label4 = new Label();
             button1 = new Button();
             label7 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
             dataGridView1 = new DataGridView();
             Time = new DataGridViewTextBoxColumn();
             Sunday = new DataGridViewTextBoxColumn();
@@ -54,11 +53,13 @@
             Tuesday = new DataGridViewTextBoxColumn();
             Wednesday = new DataGridViewTextBoxColumn();
             Thursday = new DataGridViewTextBoxColumn();
+            tabPage2 = new TabPage();
+            button2 = new Button();
             flowLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -126,72 +127,17 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Preference";
             // 
-            // label4
+            // checkBox3
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ActiveCaptionText;
-            label4.Location = new Point(6, 44);
-            label4.Name = "label4";
-            label4.Size = new Size(181, 20);
-            label4.TabIndex = 0;
-            label4.Text = "Minimum Available Seats";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(23, 91);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(150, 31);
-            numericUpDown1.TabIndex = 1;
-            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ActiveCaptionText;
-            label5.Location = new Point(242, 44);
-            label5.Name = "label5";
-            label5.Size = new Size(184, 20);
-            label5.TabIndex = 2;
-            label5.Text = "Maximum Available Seats";
-            // 
-            // numericUpDown2
-            // 
-            numericUpDown2.Location = new Point(252, 82);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(150, 31);
-            numericUpDown2.TabIndex = 3;
-            // 
-            // numericUpDown3
-            // 
-            numericUpDown3.Location = new Point(496, 82);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(150, 31);
-            numericUpDown3.TabIndex = 4;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.ActiveCaptionText;
-            label6.Location = new Point(490, 44);
-            label6.Name = "label6";
-            label6.Size = new Size(156, 20);
-            label6.TabIndex = 5;
-            label6.Text = "Number of Schedules";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox1.ForeColor = SystemColors.ActiveCaptionText;
-            checkBox1.Location = new Point(695, 30);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(238, 21);
-            checkBox1.TabIndex = 6;
-            checkBox1.Text = "Avoid Early Classes (Before 8 AM)";
-            checkBox1.UseVisualStyleBackColor = true;
+            checkBox3.AutoSize = true;
+            checkBox3.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox3.ForeColor = SystemColors.ActiveCaptionText;
+            checkBox3.Location = new Point(695, 82);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new Size(132, 21);
+            checkBox3.TabIndex = 8;
+            checkBox3.Text = "Avoid Large Gap";
+            checkBox3.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
@@ -205,17 +151,72 @@
             checkBox2.Text = "Avoid Thursday";
             checkBox2.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBox1
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBox3.ForeColor = SystemColors.ActiveCaptionText;
-            checkBox3.Location = new Point(695, 82);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(132, 21);
-            checkBox3.TabIndex = 8;
-            checkBox3.Text = "Avoid Large Gap";
-            checkBox3.UseVisualStyleBackColor = true;
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox1.ForeColor = SystemColors.ActiveCaptionText;
+            checkBox1.Location = new Point(695, 30);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(238, 21);
+            checkBox1.TabIndex = 6;
+            checkBox1.Text = "Avoid Early Classes (Before 8 AM)";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.ActiveCaptionText;
+            label6.Location = new Point(490, 44);
+            label6.Name = "label6";
+            label6.Size = new Size(156, 20);
+            label6.TabIndex = 5;
+            label6.Text = "Number of Schedules";
+            // 
+            // numericUpDown3
+            // 
+            numericUpDown3.Location = new Point(496, 82);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(150, 31);
+            numericUpDown3.TabIndex = 4;
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(252, 82);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(150, 31);
+            numericUpDown2.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ActiveCaptionText;
+            label5.Location = new Point(242, 44);
+            label5.Name = "label5";
+            label5.Size = new Size(184, 20);
+            label5.TabIndex = 2;
+            label5.Text = "Maximum Available Seats";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(37, 82);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(150, 31);
+            numericUpDown1.TabIndex = 1;
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ActiveCaptionText;
+            label4.Location = new Point(6, 44);
+            label4.Name = "label4";
+            label4.Size = new Size(181, 20);
+            label4.TabIndex = 0;
+            label4.Text = "Minimum Available Seats";
             // 
             // button1
             // 
@@ -228,6 +229,7 @@
             button1.TabIndex = 4;
             button1.Text = "Generate Clash- Free Schedules";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label7
             // 
@@ -263,18 +265,6 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Schedule 1";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.AccessibleName = "tabsSchedule2";
-            tabPage2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(795, 200);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Schedule 2";
-            tabPage2.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -328,11 +318,36 @@
             Thursday.Name = "Thursday";
             Thursday.Width = 125;
             // 
+            // tabPage2
+            // 
+            tabPage2.AccessibleName = "tabsSchedule2";
+            tabPage2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(795, 200);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Schedule 2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.ForestGreen;
+            button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = SystemColors.ControlLightLight;
+            button2.Location = new Point(377, 658);
+            button2.Name = "button2";
+            button2.Size = new Size(203, 54);
+            button2.TabIndex = 7;
+            button2.Text = "Save Schedule";
+            button2.UseVisualStyleBackColor = false;
+            // 
             // GenerateScheduleControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(963, 737);
+            Controls.Add(button2);
             Controls.Add(tabControl1);
             Controls.Add(label7);
             Controls.Add(button1);
@@ -347,9 +362,9 @@
             flowLayoutPanel1.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -385,5 +400,6 @@
         private DataGridViewTextBoxColumn Tuesday;
         private DataGridViewTextBoxColumn Wednesday;
         private DataGridViewTextBoxColumn Thursday;
+        private Button button2;
     }
 }
