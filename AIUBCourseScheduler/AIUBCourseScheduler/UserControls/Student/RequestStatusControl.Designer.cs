@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RequestStatusControl));
             label1 = new Label();
             label2 = new Label();
             panel2 = new Panel();
@@ -102,12 +103,12 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.WhatsApp_Image_2026_08_28_at_4_09_00_PM__1_;
-            pictureBox2.Location = new Point(24, 36);
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(27, 31);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(67, 53);
+            pictureBox2.Size = new Size(72, 58);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 12;
+            pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
             // label13
@@ -156,12 +157,12 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.WhatsApp_Image_2026_08_28_at_4_09_00_PM__2_;
-            pictureBox3.Location = new Point(48, 32);
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(29, 26);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(60, 57);
+            pictureBox3.Size = new Size(81, 60);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 12;
+            pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
             // label14
@@ -243,12 +244,12 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.WhatsApp_Image_2026_08_28_at_4_08_58_PM;
-            pictureBox1.Location = new Point(23, 29);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(20, 26);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(79, 61);
+            pictureBox1.Size = new Size(82, 57);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 10;
+            pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // panel4

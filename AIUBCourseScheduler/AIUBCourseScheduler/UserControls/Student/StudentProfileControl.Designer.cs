@@ -275,13 +275,6 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.pngtree_avatar_icon_profile_icon_member_login_vector_isolated_png_image_52478521;
-            pictureBox1.Location = new Point(67, 15);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(151, 120);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // panel6
             // 
@@ -312,23 +305,9 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.images2;
-            pictureBox3.Location = new Point(37, 527);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(35, 32);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 30;
-            pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.istockphoto_2190953346_612x612;
-            pictureBox2.Location = new Point(239, 527);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(33, 32);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 29;
-            pictureBox2.TabStop = false;
             // 
             // button4
             // 
