@@ -14,5 +14,22 @@ namespace AIUBCourseScheduler.UserControls.Admin
         {
             InitializeComponent();
         }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Search by section, course or faculty")
+            {
+                textBox1.Text = "";
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if(textBox1.Text == "")
+            {
+                textBox1.Text = "Search by section,course or faculty";
+
+            }
+        }
     }
 }

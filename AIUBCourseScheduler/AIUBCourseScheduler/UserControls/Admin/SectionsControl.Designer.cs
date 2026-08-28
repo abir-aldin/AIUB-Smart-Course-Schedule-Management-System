@@ -31,9 +31,21 @@
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel();
+            button2 = new Button();
             textBox1 = new TextBox();
-            flowLayoutPanel1.SuspendLayout();
+            dataGridView1 = new DataGridView();
+            SectionColumn = new DataGridViewTextBoxColumn();
+            CourseColumn = new DataGridViewTextBoxColumn();
+            FacultyColumn = new DataGridViewTextBoxColumn();
+            DayTimeColumn = new DataGridViewTextBoxColumn();
+            RoomColumn = new DataGridViewTextBoxColumn();
+            CpacityColumn = new DataGridViewTextBoxColumn();
+            EnrolledColumn = new DataGridViewTextBoxColumn();
+            ActionColumn1 = new DataGridViewButtonColumn();
+            ActionColumn2 = new DataGridViewButtonColumn();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -68,34 +80,127 @@
             button1.Text = "+  Add Section\r\n";
             button1.UseVisualStyleBackColor = false;
             // 
-            // flowLayoutPanel1
+            // panel1
             // 
-            flowLayoutPanel1.Controls.Add(textBox1);
-            flowLayoutPanel1.Location = new Point(11, 81);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(940, 79);
-            flowLayoutPanel1.TabIndex = 3;
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(textBox1);
+            panel1.Location = new Point(21, 79);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(930, 72);
+            panel1.TabIndex = 3;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Microsoft JhengHei", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(802, 17);
+            button2.Name = "button2";
+            button2.Size = new Size(111, 39);
+            button2.TabIndex = 1;
+            button2.Text = "Refresh";
+            button2.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(3, 3);
+            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(28, 21);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.ReadOnly = true;
+            textBox1.RightToLeft = RightToLeft.Yes;
+            textBox1.Size = new Size(313, 30);
             textBox1.TabIndex = 0;
+            textBox1.Text = "Search by section,course or faculty";
+            textBox1.TextAlign = HorizontalAlignment.Center;
+            textBox1.Enter += textBox1_Enter;
+            textBox1.Leave += textBox1_Leave;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { SectionColumn, CourseColumn, FacultyColumn, DayTimeColumn, RoomColumn, CpacityColumn, EnrolledColumn, ActionColumn1, ActionColumn2 });
+            dataGridView1.Location = new Point(21, 157);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(913, 531);
+            dataGridView1.TabIndex = 4;
+            // 
+            // SectionColumn
+            // 
+            SectionColumn.HeaderText = "Section";
+            SectionColumn.MinimumWidth = 6;
+            SectionColumn.Name = "SectionColumn";
+            SectionColumn.Width = 96;
+            // 
+            // CourseColumn
+            // 
+            CourseColumn.HeaderText = "Course";
+            CourseColumn.MinimumWidth = 6;
+            CourseColumn.Name = "CourseColumn";
+            CourseColumn.Width = 96;
+            // 
+            // FacultyColumn
+            // 
+            FacultyColumn.HeaderText = "Faculty";
+            FacultyColumn.MinimumWidth = 6;
+            FacultyColumn.Name = "FacultyColumn";
+            FacultyColumn.Width = 96;
+            // 
+            // DayTimeColumn
+            // 
+            DayTimeColumn.HeaderText = "Day & Time";
+            DayTimeColumn.MinimumWidth = 6;
+            DayTimeColumn.Name = "DayTimeColumn";
+            DayTimeColumn.Width = 96;
+            // 
+            // RoomColumn
+            // 
+            RoomColumn.HeaderText = "Room";
+            RoomColumn.MinimumWidth = 6;
+            RoomColumn.Name = "RoomColumn";
+            RoomColumn.Width = 96;
+            // 
+            // CpacityColumn
+            // 
+            CpacityColumn.HeaderText = "Capacity";
+            CpacityColumn.MinimumWidth = 6;
+            CpacityColumn.Name = "CpacityColumn";
+            CpacityColumn.Width = 96;
+            // 
+            // EnrolledColumn
+            // 
+            EnrolledColumn.HeaderText = "Enrolled";
+            EnrolledColumn.MinimumWidth = 6;
+            EnrolledColumn.Name = "EnrolledColumn";
+            EnrolledColumn.Width = 96;
+            // 
+            // ActionColumn1
+            // 
+            ActionColumn1.HeaderText = "Action1";
+            ActionColumn1.MinimumWidth = 6;
+            ActionColumn1.Name = "ActionColumn1";
+            ActionColumn1.Width = 96;
+            // 
+            // ActionColumn2
+            // 
+            ActionColumn2.HeaderText = "Action2";
+            ActionColumn2.MinimumWidth = 6;
+            ActionColumn2.Name = "ActionColumn2";
+            ActionColumn2.Width = 96;
             // 
             // SectionsControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(963, 737);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(dataGridView1);
+            Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "SectionsControl";
             Text = "SectionsControl";
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -105,7 +210,18 @@
         private Label label1;
         private Label label2;
         private Button button1;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel1;
         private TextBox textBox1;
+        private Button button2;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn SectionColumn;
+        private DataGridViewTextBoxColumn CourseColumn;
+        private DataGridViewTextBoxColumn FacultyColumn;
+        private DataGridViewTextBoxColumn DayTimeColumn;
+        private DataGridViewTextBoxColumn RoomColumn;
+        private DataGridViewTextBoxColumn CpacityColumn;
+        private DataGridViewTextBoxColumn EnrolledColumn;
+        private DataGridViewButtonColumn ActionColumn1;
+        private DataGridViewButtonColumn ActionColumn2;
     }
 }
