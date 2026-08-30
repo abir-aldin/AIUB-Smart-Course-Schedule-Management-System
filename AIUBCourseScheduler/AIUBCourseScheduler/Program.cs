@@ -14,7 +14,12 @@ namespace AIUBCourseScheduler
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new LoginForm());
-            Application.Run(new RegisterForm());
+            //Application.Run(new RegisterForm());
+            //Application.Run(new AdminMainForm());
+            //Application.Run(new StudentMainForm());
+            //            Application.Run(
+            //    new OtpVerificationForm("testreceiver@gmail.com")
+            //);
         }
     }
 }

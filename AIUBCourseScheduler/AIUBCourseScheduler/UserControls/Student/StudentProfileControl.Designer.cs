@@ -48,10 +48,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             label4 = new Label();
             label3 = new Label();
-            pictureBox1 = new PictureBox();
             panel6 = new Panel();
-            pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
             button4 = new Button();
             button1 = new Button();
             button3 = new Button();
@@ -70,10 +67,7 @@
             label16 = new Label();
             label15 = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -117,7 +111,6 @@
             panel1.Controls.Add(flowLayoutPanel1);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(12, 75);
             panel1.Name = "panel1";
             panel1.Size = new Size(299, 634);
@@ -273,14 +266,9 @@
             label3.TabIndex = 1;
             label3.Text = "John Doe";
             // 
-            // pictureBox1
-            // 
-            // 
             // panel6
             // 
             panel6.BackColor = SystemColors.InactiveBorder;
-            panel6.Controls.Add(pictureBox3);
-            panel6.Controls.Add(pictureBox2);
             panel6.Controls.Add(button4);
             panel6.Controls.Add(button1);
             panel6.Controls.Add(button3);
@@ -302,12 +290,6 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(625, 634);
             panel6.TabIndex = 3;
-            // 
-            // pictureBox3
-            // 
-            // 
-            // pictureBox2
-            // 
             // 
             // button4
             // 
@@ -337,9 +319,9 @@
             // button3
             // 
             button3.AutoSize = true;
-            button3.BackColor = SystemColors.ButtonHighlight;
+            button3.BackColor = Color.Red;
             button3.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Red;
+            button3.ForeColor = Color.White;
             button3.Location = new Point(455, 515);
             button3.Name = "button3";
             button3.Size = new Size(146, 53);
@@ -498,11 +480,8 @@
             Text = "StudentProfileControl";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -515,7 +494,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label4;
         private Label label3;
-        private PictureBox pictureBox1;
         private Label label14;
         private Label label13;
         private Label label12;
@@ -548,7 +526,5 @@
         private Panel panel7;
         private Button button1;
         private Button button4;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
     }
 }

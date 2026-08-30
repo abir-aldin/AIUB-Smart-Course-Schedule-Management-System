@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            button2 = new Button();
             linkLabel2 = new LinkLabel();
             linkLabel1 = new LinkLabel();
             textBox2 = new TextBox();
@@ -44,7 +45,6 @@
             label2 = new Label();
             label1 = new Label();
             label8 = new Label();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -80,6 +80,19 @@
             panel1.Size = new Size(481, 537);
             panel1.TabIndex = 1;
             // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.ControlLightLight;
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.Cursor = Cursors.Hand;
+            button2.Location = new Point(409, 273);
+            button2.Name = "button2";
+            button2.Size = new Size(36, 34);
+            button2.TabIndex = 4;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
@@ -89,6 +102,7 @@
             linkLabel2.TabIndex = 14;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Create Account";
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // linkLabel1
             // 
@@ -103,13 +117,14 @@
             // 
             // textBox2
             // 
-            textBox2.ForeColor = SystemColors.ButtonShadow;
+            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox2.ForeColor = SystemColors.ActiveCaptionText;
             textBox2.Location = new Point(34, 273);
-            textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(411, 48);
+            textBox2.PlaceholderText = "Enter your password";
+            textBox2.Size = new Size(411, 34);
             textBox2.TabIndex = 11;
-            textBox2.Text = "Enter your password";
+            textBox2.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -125,6 +140,7 @@
             // button1
             // 
             button1.BackColor = Color.RoyalBlue;
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlLightLight;
             button1.Location = new Point(34, 400);
@@ -168,13 +184,13 @@
             // 
             // textBox1
             // 
-            textBox1.ForeColor = SystemColors.ButtonShadow;
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = SystemColors.ActiveCaptionText;
             textBox1.Location = new Point(34, 163);
-            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(411, 48);
+            textBox1.PlaceholderText = "Enter your email ID";
+            textBox1.Size = new Size(411, 34);
             textBox1.TabIndex = 3;
-            textBox1.Text = "Enter your email ID";
             // 
             // label3
             // 
@@ -214,18 +230,6 @@
             label8.Size = new Size(345, 20);
             label8.TabIndex = 2;
             label8.Text = "AIUB Smart Course Schedule Management System ";
-            // 
-            // button2
-            // 
-            button2.BackColor = SystemColors.ControlLightLight;
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.Cursor = Cursors.Hand;
-            button2.Location = new Point(397, 273);
-            button2.Name = "button2";
-            button2.Size = new Size(48, 48);
-            button2.TabIndex = 4;
-            button2.UseVisualStyleBackColor = false;
             // 
             // LoginForm
             // 

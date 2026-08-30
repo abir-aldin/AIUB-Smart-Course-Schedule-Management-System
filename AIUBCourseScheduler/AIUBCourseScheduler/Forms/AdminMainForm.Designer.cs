@@ -88,6 +88,7 @@
             button4.TabIndex = 6;
             button4.Text = "SECTIONS";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button7
             // 
@@ -102,6 +103,7 @@
             button7.TabIndex = 3;
             button7.Text = "PROFILE";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button3
             // 
@@ -116,6 +118,7 @@
             button3.TabIndex = 5;
             button3.Text = "COURSES";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button6
             // 
@@ -144,6 +147,7 @@
             button2.TabIndex = 4;
             button2.Text = "IMPORT EXCEL";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button5
             // 
@@ -158,6 +162,7 @@
             button5.TabIndex = 1;
             button5.Text = "SCHEDULE REQUESTS";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button1
             // 
@@ -172,6 +177,7 @@
             button1.TabIndex = 3;
             button1.Text = "DASHBOARD";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -198,7 +204,7 @@
             // panel2
             // 
             panel2.AutoSize = true;
-            panel2.BackColor = SystemColors.ActiveBorder;
+            panel2.BackColor = SystemColors.ButtonHighlight;
             panel2.Location = new Point(220, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(981, 784);
