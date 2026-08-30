@@ -159,13 +159,13 @@
             // 
             // textBox4
             // 
-            textBox4.ForeColor = SystemColors.ControlDarkDark;
+            textBox4.ForeColor = SystemColors.ActiveCaptionText;
             textBox4.Location = new Point(31, 205);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
+            textBox4.PlaceholderText = "Search by student name or request ID...";
             textBox4.Size = new Size(354, 32);
             textBox4.TabIndex = 20;
-            textBox4.Text = "            Search by student name or request ID...";
             textBox4.TextChanged += textBox4_TextChanged;
             // 
             // button1

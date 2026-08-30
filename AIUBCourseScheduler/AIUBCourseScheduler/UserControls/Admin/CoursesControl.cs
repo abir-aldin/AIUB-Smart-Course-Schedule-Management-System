@@ -154,10 +154,12 @@ namespace AIUBCourseScheduler.UserControls.Admin
             }
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
-    }
+}
     
 
 

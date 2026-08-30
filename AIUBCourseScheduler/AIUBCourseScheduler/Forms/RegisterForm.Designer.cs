@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            button2 = new Button();
             textBox1 = new TextBox();
             textBox3 = new TextBox();
             button3 = new Button();
@@ -48,7 +49,6 @@
             label2 = new Label();
             label1 = new Label();
             label9 = new Label();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -90,25 +90,38 @@
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.ControlLightLight;
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.Cursor = Cursors.Hand;
+            button2.Location = new Point(458, 378);
+            button2.Name = "button2";
+            button2.Size = new Size(36, 32);
+            button2.TabIndex = 20;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // textBox1
             // 
-            textBox1.ForeColor = SystemColors.ButtonShadow;
+            textBox1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = SystemColors.ActiveCaptionText;
             textBox1.Location = new Point(40, 127);
-            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(454, 39);
+            textBox1.PlaceholderText = "Enter your full name ";
+            textBox1.Size = new Size(454, 32);
             textBox1.TabIndex = 19;
-            textBox1.Text = "Enter your full name ";
             // 
             // textBox3
             // 
-            textBox3.ForeColor = SystemColors.ButtonShadow;
+            textBox3.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox3.ForeColor = Color.Black;
             textBox3.Location = new Point(40, 289);
-            textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(454, 39);
+            textBox3.PlaceholderText = "Enter your university email";
+            textBox3.Size = new Size(454, 32);
             textBox3.TabIndex = 16;
-            textBox3.Text = "Enter your university email";
             // 
             // button3
             // 
@@ -118,9 +131,10 @@
             button3.Cursor = Cursors.Hand;
             button3.Location = new Point(458, 472);
             button3.Name = "button3";
-            button3.Size = new Size(36, 40);
+            button3.Size = new Size(36, 32);
             button3.TabIndex = 4;
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // linkLabel1
             // 
@@ -131,10 +145,12 @@
             linkLabel1.TabIndex = 2;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Sign In";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // button1
             // 
             button1.BackColor = Color.RoyalBlue;
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlLightLight;
             button1.Location = new Point(40, 534);
@@ -143,36 +159,39 @@
             button1.TabIndex = 2;
             button1.Text = "Create Account";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // textBox5
             // 
-            textBox5.ForeColor = SystemColors.ButtonShadow;
+            textBox5.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox5.ForeColor = Color.Black;
             textBox5.Location = new Point(40, 472);
-            textBox5.Multiline = true;
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(454, 39);
+            textBox5.PlaceholderText = "Confirm your password";
+            textBox5.Size = new Size(454, 32);
             textBox5.TabIndex = 15;
-            textBox5.Text = "Confirm your password";
+            textBox5.UseSystemPasswordChar = true;
             // 
             // textBox4
             // 
-            textBox4.ForeColor = SystemColors.ButtonShadow;
+            textBox4.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox4.ForeColor = Color.Black;
             textBox4.Location = new Point(40, 378);
-            textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(454, 39);
+            textBox4.PlaceholderText = "Create a password";
+            textBox4.Size = new Size(454, 32);
             textBox4.TabIndex = 14;
-            textBox4.Text = "Create a password";
+            textBox4.UseSystemPasswordChar = true;
             // 
             // textBox2
             // 
-            textBox2.ForeColor = SystemColors.ButtonShadow;
+            textBox2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox2.ForeColor = Color.Black;
             textBox2.Location = new Point(40, 204);
-            textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(454, 39);
+            textBox2.PlaceholderText = "Enter your student ID";
+            textBox2.Size = new Size(454, 32);
             textBox2.TabIndex = 12;
-            textBox2.Text = "Enter your student ID";
             // 
             // label8
             // 
@@ -266,18 +285,6 @@
             label9.Size = new Size(391, 18);
             label9.TabIndex = 2;
             label9.Text = "AIUB Smart Course Schedule Management System";
-            // 
-            // button2
-            // 
-            button2.BackColor = SystemColors.ControlLightLight;
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Stretch;
-            button2.Cursor = Cursors.Hand;
-            button2.Location = new Point(458, 378);
-            button2.Name = "button2";
-            button2.Size = new Size(36, 40);
-            button2.TabIndex = 20;
-            button2.UseVisualStyleBackColor = false;
             // 
             // RegisterForm
             // 

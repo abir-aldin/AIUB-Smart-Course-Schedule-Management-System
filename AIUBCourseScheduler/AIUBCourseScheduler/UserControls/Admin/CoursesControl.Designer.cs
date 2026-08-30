@@ -96,6 +96,7 @@
             textBox1.Size = new Size(230, 32);
             textBox1.TabIndex = 3;
             textBox1.Text = "Search course code or name";
+            textBox1.TextChanged += textBox1_TextChanged;
             textBox1.Enter += textBox1_Enter;
             textBox1.Leave += textBox1_Leave;
             // 
