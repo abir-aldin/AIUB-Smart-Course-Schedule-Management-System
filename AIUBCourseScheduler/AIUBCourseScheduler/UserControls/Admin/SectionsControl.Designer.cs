@@ -37,7 +37,6 @@
             dataGridView1 = new DataGridView();
             SectionColumn = new DataGridViewTextBoxColumn();
             CourseColumn = new DataGridViewTextBoxColumn();
-            FacultyColumn = new DataGridViewTextBoxColumn();
             DayTimeColumn = new DataGridViewTextBoxColumn();
             RoomColumn = new DataGridViewTextBoxColumn();
             CpacityColumn = new DataGridViewTextBoxColumn();
@@ -98,25 +97,23 @@
             button2.TabIndex = 1;
             button2.Text = "Refresh";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.Location = new Point(28, 21);
             textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.RightToLeft = RightToLeft.Yes;
+            textBox1.PlaceholderText = "Search by section, course";
+            textBox1.RightToLeft = RightToLeft.No;
             textBox1.Size = new Size(313, 30);
             textBox1.TabIndex = 0;
-            textBox1.Text = "Search by section,course or faculty";
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            textBox1.Enter += textBox1_Enter;
-            textBox1.Leave += textBox1_Leave;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { SectionColumn, CourseColumn, FacultyColumn, DayTimeColumn, RoomColumn, CpacityColumn, EnrolledColumn, ActionColumn1, ActionColumn2 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { SectionColumn, CourseColumn, DayTimeColumn, RoomColumn, CpacityColumn, EnrolledColumn, ActionColumn1, ActionColumn2 });
             dataGridView1.Location = new Point(21, 157);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
@@ -136,13 +133,6 @@
             CourseColumn.MinimumWidth = 6;
             CourseColumn.Name = "CourseColumn";
             CourseColumn.Width = 96;
-            // 
-            // FacultyColumn
-            // 
-            FacultyColumn.HeaderText = "Faculty";
-            FacultyColumn.MinimumWidth = 6;
-            FacultyColumn.Name = "FacultyColumn";
-            FacultyColumn.Width = 96;
             // 
             // DayTimeColumn
             // 
@@ -198,6 +188,7 @@
             Controls.Add(label1);
             Name = "SectionsControl";
             Text = "SectionsControl";
+            Load += SectionsControl_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -216,7 +207,6 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn SectionColumn;
         private DataGridViewTextBoxColumn CourseColumn;
-        private DataGridViewTextBoxColumn FacultyColumn;
         private DataGridViewTextBoxColumn DayTimeColumn;
         private DataGridViewTextBoxColumn RoomColumn;
         private DataGridViewTextBoxColumn CpacityColumn;
