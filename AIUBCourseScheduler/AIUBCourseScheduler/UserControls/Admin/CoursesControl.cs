@@ -1,166 +1,188 @@
-﻿using System;
+﻿using AIUBCourseScheduler.DataAccess;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace AIUBCourseScheduler.UserControls.Admin
 {
     public partial class CoursesControl : Form
     {
-        List<Course> courses = new List<Course>();
+        private readonly List<Course> courses =
+            new List<Course>();
+
         public CoursesControl()
         {
             InitializeComponent();
 
-
+            // Designer-এর নির্ধারিত columns-ই ব্যবহার হবে
+            dgvCourses.AutoGenerateColumns = false;
         }
 
 
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "Search course code or name")
-            {
-                textBox1.Clear();
-            }
-        }
 
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                textBox1.Text = "Search course code or name";
-            }
-        }
-        private void LoadCourses()
+        private async Task LoadCoursesAsync()
         {
             courses.Clear();
 
-            courses.Add(new Course
-            {
-                CourseCode = "CSE 311",
-                CourseName = "Data Structures",
-                Credits = 3.0,
-                Department = "Computer Science & Engineering",
-                Status = "Active"
-            });
+            const string query = @"
+                SELECT
+                    C.CourseId,
+                    C.CourseCode,
+                    C.CourseTitle,
+                    CAST(
+                        CASE
+                            WHEN EXISTS
+                            (
+                                SELECT 1
+                                FROM dbo.CourseOfferings AS CO
+                                WHERE CO.CourseId = C.CourseId
+                                  AND CO.OfferingType = 'Lab'
+                            )
+                            THEN 1.0
+                            ELSE 3.0
+                        END
+                        AS FLOAT
+                    ) AS Credits,
+                    C.Department,
+                    C.IsActive
+                FROM dbo.Courses AS C
+                ORDER BY C.CourseTitle;";
 
-            courses.Add(new Course
-            {
-                CourseCode = "CSE 313",
-                CourseName = "Object Oriented Programming",
-                Credits = 3.0,
-                Department = "Computer Science & Engineering",
-                Status = "Active"
-            });
+            using SqlConnection connection =
+                DatabaseConnection.GetConnection();
 
-            courses.Add(new Course
-            {
-                CourseCode = "MAT 221",
-                CourseName = "Calculus II",
-                Credits = 3.0,
-                Department = "Mathematics",
-                Status = "Active"
-            });
+            await connection.OpenAsync();
 
-            courses.Add(new Course
-            {
-                CourseCode = "PHY 205",
-                CourseName = "Physics II",
-                Credits = 3.0,
-                Department = "Physics",
-                Status = "Active"
-            });
+            using SqlCommand command =
+                new SqlCommand(query, connection);
 
-            courses.Add(new Course
-            {
-                CourseCode = "ENG 201",
-                CourseName = "Technical Writing",
-                Credits = 3.0,
-                Department = "English",
-                Status = "Active"
-            });
+            using SqlDataReader reader =
+                await command.ExecuteReaderAsync();
 
-            courses.Add(new Course
+            while (await reader.ReadAsync())
             {
-                CourseCode = "CSE 101",
-                CourseName = "Introduction to Computing",
-                Credits = 3.0,
-                Department = "Computer Science & Engineering",
-                Status = "Inactive"
-            });
+                courses.Add(new Course
+                {
+                    CourseId = reader.GetInt32(0),
 
-            courses.Add(new Course
-            {
-                CourseCode = "EEE 201",
-                CourseName = "Circuit Analysis",
-                Credits = 3.0,
-                Department = "Electrical & Electronic Engineering",
-                Status = "Active"
-            });
+                    CourseCode = reader.IsDBNull(1)
+                        ? "N/A"
+                        : reader.GetString(1),
 
-            courses.Add(new Course
-            {
-                CourseCode = "BUS 101",
-                CourseName = "Introduction to Business",
-                Credits = 3.0,
-                Department = "Business Administration",
-                Status = "Inactive"
-            });
+                    CourseName = reader.GetString(2),
 
-            courses.Add(new Course
-            {
-                CourseCode = "MAT 121",
-                CourseName = "Calculus I",
-                Credits = 3.0,
-                Department = "Mathematics",
-                Status = "Inactive"
-            });
+                    Credits = reader.GetDouble(3),
 
-            courses.Add(new Course
-            {
-                CourseCode = "CHE 105",
-                CourseName = "Chemistry I",
-                Credits = 3.0,
-                Department = "Chemistry",
-                Status = "Active"
-            });
+                    Department = reader.IsDBNull(4)
+                        ? "N/A"
+                        : reader.GetString(4),
+
+                    Status = reader.GetBoolean(5)
+                        ? "Active"
+                        : "Inactive"
+                });
+            }
         }
-        private void ShowCourses()
+
+        private void ShowCourses(IEnumerable<Course> courseList)
         {
+            List<Course> displayedCourses =
+                courseList.ToList();
+
             dgvCourses.DataSource = null;
-            dgvCourses.DataSource = courses;
+            dgvCourses.DataSource = displayedCourses;
+
+            label3.Text =
+                $"Showing {displayedCourses.Count} courses";
+
+            dgvCourses.ClearSelection();
         }
 
-        private void CoursesControl_Load(object sender, EventArgs e)
+        private async void CoursesControl_Load(
+            object sender,
+            EventArgs e)
         {
-            LoadCourses();
-            ShowCourses();
+            try
+            {
+                await LoadCoursesAsync();
+                ShowCourses(courses);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(
+                    "Could not load courses.\n\n" +
+                    ex.Message,
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
-        private void dgvCourses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dgvCourses_CellContentClick(
+            object sender,
+            DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (e.RowIndex < 0 ||
+                e.ColumnIndex < 0)
+            {
                 return;
-
-            if (dgvCourses.Columns[e.ColumnIndex].Name == "EditColumn")
-            {
-                MessageBox.Show("Edit button working");
             }
-            else if (dgvCourses.Columns[e.ColumnIndex].Name == "DeleteColumn")
+
+            string columnName =
+                dgvCourses.Columns[e.ColumnIndex].Name;
+
+            if (columnName == "EditColumn")
             {
-                MessageBox.Show("Delete button working");
+                MessageBox.Show(
+                    "Edit function will be added next."
+                );
+            }
+            else if (columnName == "DeleteColumn")
+            {
+                MessageBox.Show(
+                    "Delete function will be added next."
+                );
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(
+    object sender,
+    EventArgs e)
         {
+            string searchText = textBox1.Text.Trim();
 
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                ShowCourses(courses);
+                return;
+            }
+
+            List<Course> filteredCourses =
+                courses.Where(course =>
+                    course.CourseCode.Contains(
+                        searchText,
+                        StringComparison.OrdinalIgnoreCase
+                    ) ||
+                    course.CourseName.Contains(
+                        searchText,
+                        StringComparison.OrdinalIgnoreCase
+                    )
+                ).ToList();
+
+            ShowCourses(filteredCourses);
+        }
+
+        private void button2_Click(
+            object sender,
+            EventArgs e)
+        {
+            textBox1.Clear();
+            textBox1.Focus();
         }
     }
 }
-    
-
-
-

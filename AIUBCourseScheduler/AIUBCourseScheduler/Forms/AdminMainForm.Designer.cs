@@ -20,6 +20,10 @@
             base.Dispose(disposing);
         }
 
+
+
+
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -58,7 +62,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(220, 784);
+            panel1.Size = new Size(220, 742);
             panel1.TabIndex = 0;
             // 
             // button8
@@ -74,6 +78,7 @@
             button8.TabIndex = 4;
             button8.Text = "LOG OUT";
             button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // button4
             // 
@@ -133,6 +138,7 @@
             button6.TabIndex = 2;
             button6.Text = "USERS";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button2
             // 
@@ -207,7 +213,7 @@
             panel2.BackColor = SystemColors.ButtonHighlight;
             panel2.Location = new Point(220, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(981, 784);
+            panel2.Size = new Size(969, 740);
             panel2.TabIndex = 1;
             // 
             // AdminMainForm

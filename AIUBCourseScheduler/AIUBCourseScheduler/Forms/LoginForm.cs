@@ -314,6 +314,28 @@ namespace AIUBCourseScheduler.Forms
         private void DestinationForm_FormClosed(object? sender, FormClosedEventArgs e)
         {
             UserSession.Clear();
+
+            if (sender is AdminMainForm adminForm &&
+                adminForm.IsLoggingOut)
+            {
+                button1.Enabled = true;
+
+                textBox2.UseSystemPasswordChar = false;
+                textBox2.Text = PasswordPlaceholder;
+                textBox2.ForeColor = Color.Gray;
+
+                if (!checkBox1.Checked)
+                {
+                    textBox1.Text = IdentifierPlaceholder;
+                    textBox1.ForeColor = Color.Gray;
+                }
+
+                Show();
+                Activate();
+                return;
+            }
+
+            // X button দিয়ে Admin form বন্ধ করলে app বন্ধ হবে
             Close();
         }
 
