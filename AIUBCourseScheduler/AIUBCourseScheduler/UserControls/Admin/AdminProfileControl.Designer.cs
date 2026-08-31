@@ -88,17 +88,17 @@
             // textBox2
             // 
             textBox2.BackColor = SystemColors.InactiveBorder;
+            textBox2.Font = new Font("Segoe UI", 12F);
             textBox2.Location = new Point(364, 197);
-            textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(276, 36);
+            textBox2.Size = new Size(276, 34);
             textBox2.TabIndex = 9;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(264, 133);
+            label6.Location = new Point(264, 125);
             label6.Name = "label6";
             label6.Size = new Size(87, 100);
             label6.TabIndex = 7;
@@ -109,7 +109,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(264, 140);
+            label5.Location = new Point(270, 133);
             label5.Name = "label5";
             label5.Size = new Size(81, 40);
             label5.TabIndex = 6;
@@ -133,7 +133,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(264, 267);
+            label7.Location = new Point(292, 260);
             label7.Name = "label7";
             label7.Size = new Size(54, 20);
             label7.TabIndex = 11;
@@ -143,7 +143,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(264, 321);
+            label8.Location = new Point(299, 308);
             label8.Name = "label8";
             label8.Size = new Size(47, 20);
             label8.TabIndex = 12;
@@ -153,7 +153,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(264, 372);
+            label9.Location = new Point(247, 367);
             label9.Name = "label9";
             label9.Size = new Size(99, 20);
             label9.TabIndex = 13;
@@ -164,7 +164,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(264, 439);
+            label11.Location = new Point(285, 426);
             label11.Name = "label11";
             label11.Size = new Size(61, 20);
             label11.TabIndex = 15;
@@ -195,7 +195,7 @@
             // 
             button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.RoyalBlue;
-            button2.Location = new Point(31, 568);
+            button2.Location = new Point(70, 566);
             button2.Name = "button2";
             button2.Size = new Size(192, 62);
             button2.TabIndex = 25;
@@ -207,7 +207,7 @@
             button1.BackColor = Color.RoyalBlue;
             button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(323, 568);
+            button1.Location = new Point(339, 568);
             button1.Name = "button1";
             button1.Size = new Size(301, 62);
             button1.TabIndex = 27;
@@ -217,10 +217,10 @@
             // textBox1
             // 
             textBox1.BackColor = SystemColors.InactiveBorder;
+            textBox1.Font = new Font("Segoe UI", 12F);
             textBox1.Location = new Point(364, 144);
-            textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(276, 36);
+            textBox1.Size = new Size(276, 34);
             textBox1.TabIndex = 29;
             // 
             // textBox3
@@ -261,13 +261,15 @@
             // 
             // button3
             // 
-            button3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(685, 568);
+            button3.BackColor = Color.Red;
+            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.Location = new Point(724, 566);
             button3.Name = "button3";
             button3.Size = new Size(149, 62);
             button3.TabIndex = 34;
             button3.Text = "Cancel";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             // 
             // label13
             // 

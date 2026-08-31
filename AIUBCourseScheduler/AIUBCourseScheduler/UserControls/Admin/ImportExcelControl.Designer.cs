@@ -50,6 +50,7 @@
             ValidRows = new DataGridViewTextBoxColumn();
             ViewDetails = new DataGridViewButtonColumn();
             label9 = new Label();
+            button3 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -115,7 +116,7 @@
             button1.BackColor = Color.DodgerBlue;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(114, 108);
+            button1.Location = new Point(116, 93);
             button1.Name = "button1";
             button1.Size = new Size(170, 55);
             button1.TabIndex = 3;
@@ -149,7 +150,7 @@
             // button2
             // 
             button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Location = new Point(299, 45);
+            button2.Location = new Point(312, 53);
             button2.Name = "button2";
             button2.Size = new Size(54, 51);
             button2.TabIndex = 5;
@@ -193,7 +194,7 @@
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(dataGridView1);
             panel3.Controls.Add(label9);
-            panel3.Location = new Point(26, 352);
+            panel3.Location = new Point(26, 299);
             panel3.Name = "panel3";
             panel3.Size = new Size(925, 304);
             panel3.TabIndex = 4;
@@ -270,11 +271,25 @@
             label9.TabIndex = 0;
             label9.Text = "Import History";
             // 
+            // button3
+            // 
+            button3.BackColor = Color.Red;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button3.ForeColor = SystemColors.ButtonHighlight;
+            button3.Location = new Point(466, 620);
+            button3.Name = "button3";
+            button3.Size = new Size(97, 41);
+            button3.TabIndex = 5;
+            button3.Text = "Delete";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // ImportExcelControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(963, 737);
+            Controls.Add(button3);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -318,5 +333,6 @@
         private DataGridViewTextBoxColumn ValidRows;
         private DataGridViewButtonColumn ViewDetails;
         private Label label9;
+        private Button button3;
     }
 }

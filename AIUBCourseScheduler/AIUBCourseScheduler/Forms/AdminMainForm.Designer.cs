@@ -20,6 +20,10 @@
             base.Dispose(disposing);
         }
 
+
+
+
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -58,7 +62,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(220, 784);
+            panel1.Size = new Size(220, 742);
             panel1.TabIndex = 0;
             // 
             // button8
@@ -74,6 +78,7 @@
             button8.TabIndex = 4;
             button8.Text = "LOG OUT";
             button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // button4
             // 
@@ -88,6 +93,7 @@
             button4.TabIndex = 6;
             button4.Text = "SECTIONS";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button7
             // 
@@ -102,6 +108,7 @@
             button7.TabIndex = 3;
             button7.Text = "PROFILE";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button3
             // 
@@ -116,6 +123,7 @@
             button3.TabIndex = 5;
             button3.Text = "COURSES";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button6
             // 
@@ -130,6 +138,7 @@
             button6.TabIndex = 2;
             button6.Text = "USERS";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button2
             // 
@@ -144,6 +153,7 @@
             button2.TabIndex = 4;
             button2.Text = "IMPORT EXCEL";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button5
             // 
@@ -158,6 +168,7 @@
             button5.TabIndex = 1;
             button5.Text = "SCHEDULE REQUESTS";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button1
             // 
@@ -172,6 +183,7 @@
             button1.TabIndex = 3;
             button1.Text = "DASHBOARD";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -198,10 +210,10 @@
             // panel2
             // 
             panel2.AutoSize = true;
-            panel2.BackColor = SystemColors.ActiveBorder;
+            panel2.BackColor = SystemColors.ButtonHighlight;
             panel2.Location = new Point(220, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(981, 784);
+            panel2.Size = new Size(969, 740);
             panel2.TabIndex = 1;
             // 
             // AdminMainForm
