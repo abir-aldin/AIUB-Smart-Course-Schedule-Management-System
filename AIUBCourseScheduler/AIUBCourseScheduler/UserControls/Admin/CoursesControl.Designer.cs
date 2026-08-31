@@ -87,18 +87,18 @@
             button1.TabIndex = 2;
             button1.Text = "+ Add Course";
             button1.UseVisualStyleBackColor = false;
+
+            textBox1.TextChanged += textBox1_TextChanged;
+            button2.Click += button2_Click;
             // 
             // textBox1
             // 
             textBox1.Location = new Point(42, 23);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Search course code or name";
             textBox1.Size = new Size(230, 32);
             textBox1.TabIndex = 3;
-            textBox1.Text = "Search course code or name";
-            textBox1.TextChanged += textBox1_TextChanged;
-            textBox1.Enter += textBox1_Enter;
-            textBox1.Leave += textBox1_Leave;
             // 
             // panel1
             // 
