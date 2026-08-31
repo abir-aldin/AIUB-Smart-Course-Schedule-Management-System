@@ -37,7 +37,6 @@
             Courses = new DataGridViewTextBoxColumn();
             Dataview = new DataGridViewButtonColumn();
             panel1 = new Panel();
-            label3 = new Label();
             dataGridView2 = new DataGridView();
             Time = new DataGridViewTextBoxColumn();
             Sunday = new DataGridViewTextBoxColumn();
@@ -45,6 +44,7 @@
             Tuesday = new DataGridViewTextBoxColumn();
             Wednesday = new DataGridViewTextBoxColumn();
             Thursday = new DataGridViewTextBoxColumn();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -74,9 +74,9 @@
             button1.BackColor = SystemColors.MenuHighlight;
             button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(390, 646);
+            button1.Location = new Point(369, 641);
             button1.Name = "button1";
-            button1.Size = new Size(189, 68);
+            button1.Size = new Size(250, 68);
             button1.TabIndex = 2;
             button1.Text = "Submit";
             button1.UseVisualStyleBackColor = false;
@@ -130,16 +130,6 @@
             panel1.TabIndex = 4;
             panel1.Paint += panel1_Paint;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            label3.Location = new Point(16, 15);
-            label3.Name = "label3";
-            label3.Size = new Size(309, 23);
-            label3.TabIndex = 0;
-            label3.Text = "Schedule 1 - Weekly Timetable Preview";
-            // 
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -191,6 +181,16 @@
             Thursday.MinimumWidth = 6;
             Thursday.Name = "Thursday";
             Thursday.Width = 125;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label3.Location = new Point(16, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(309, 23);
+            label3.TabIndex = 0;
+            label3.Text = "Schedule 1 - Weekly Timetable Preview";
             // 
             // MySchedulesControl
             // 

@@ -31,14 +31,11 @@ namespace AIUBCourseScheduler
             }
             Application.Run(new LoginForm());
             //Application.Run(new RegisterForm());
-<<<<<<< HEAD
-=======
             //Application.Run(new AdminMainForm());
             //Application.Run(new StudentMainForm());
             //            Application.Run(
             //    new OtpVerificationForm("testreceiver@gmail.com")
             //);
->>>>>>> main
         }
     }
 }

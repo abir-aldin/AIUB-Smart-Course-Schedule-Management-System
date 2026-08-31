@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentProfileControl));
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
@@ -66,8 +67,10 @@
             textBox1 = new TextBox();
             label16 = new Label();
             label15 = new Label();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -94,6 +97,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.InactiveBorder;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
@@ -296,12 +300,13 @@
             button4.BackColor = Color.RoyalBlue;
             button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = SystemColors.ButtonHighlight;
-            button4.Location = new Point(219, 512);
+            button4.Location = new Point(219, 519);
             button4.Name = "button4";
-            button4.Size = new Size(230, 58);
+            button4.Size = new Size(230, 51);
             button4.TabIndex = 28;
             button4.Text = "Save Changes";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button1
             // 
@@ -320,11 +325,11 @@
             // 
             button3.AutoSize = true;
             button3.BackColor = Color.Red;
-            button3.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.Font = new Font("Microsoft Sans Serif", 11F);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(455, 515);
+            button3.Location = new Point(466, 519);
             button3.Name = "button3";
-            button3.Size = new Size(146, 53);
+            button3.Size = new Size(146, 46);
             button3.TabIndex = 14;
             button3.Text = "Cancel";
             button3.UseVisualStyleBackColor = false;
@@ -341,7 +346,7 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.Location = new Point(21, 404);
+            label21.Location = new Point(31, 404);
             label21.Name = "label21";
             label21.Size = new Size(80, 23);
             label21.TabIndex = 12;
@@ -351,7 +356,7 @@
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(21, 333);
+            label20.Location = new Point(31, 334);
             label20.Name = "label20";
             label20.Size = new Size(76, 23);
             label20.TabIndex = 11;
@@ -390,7 +395,7 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(17, 263);
+            label19.Location = new Point(21, 268);
             label19.Name = "label19";
             label19.Size = new Size(102, 23);
             label19.TabIndex = 7;
@@ -400,7 +405,7 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(21, 199);
+            label18.Location = new Point(31, 206);
             label18.Name = "label18";
             label18.Size = new Size(51, 23);
             label18.TabIndex = 6;
@@ -410,7 +415,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(21, 129);
+            label17.Location = new Point(31, 132);
             label17.Name = "label17";
             label17.Size = new Size(88, 23);
             label17.TabIndex = 5;
@@ -450,7 +455,7 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(21, 63);
+            label16.Location = new Point(27, 70);
             label16.Name = "label16";
             label16.Size = new Size(92, 23);
             label16.TabIndex = 1;
@@ -467,6 +472,16 @@
             label15.TabIndex = 0;
             label15.Text = "Edit Profile Information";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(74, 34);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(135, 92);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            // 
             // StudentProfileControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -482,6 +497,7 @@
             panel1.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -526,5 +542,6 @@
         private Panel panel7;
         private Button button1;
         private Button button4;
+        private PictureBox pictureBox1;
     }
 }

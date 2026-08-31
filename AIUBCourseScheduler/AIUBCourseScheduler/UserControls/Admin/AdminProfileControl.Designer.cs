@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminProfileControl));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -54,6 +55,14 @@
             label15 = new Label();
             label16 = new Label();
             button4 = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -226,37 +235,37 @@
             // textBox3
             // 
             textBox3.BackColor = SystemColors.InactiveBorder;
+            textBox3.Font = new Font("Segoe UI", 12F);
             textBox3.Location = new Point(364, 251);
-            textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(276, 36);
+            textBox3.Size = new Size(276, 34);
             textBox3.TabIndex = 30;
             // 
             // textBox4
             // 
             textBox4.BackColor = SystemColors.InactiveBorder;
+            textBox4.Font = new Font("Segoe UI", 12F);
             textBox4.Location = new Point(364, 305);
-            textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(276, 36);
+            textBox4.Size = new Size(276, 34);
             textBox4.TabIndex = 31;
             // 
             // textBox5
             // 
             textBox5.BackColor = SystemColors.InactiveBorder;
+            textBox5.Font = new Font("Segoe UI", 12F);
             textBox5.Location = new Point(364, 356);
-            textBox5.Multiline = true;
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(276, 36);
+            textBox5.Size = new Size(276, 34);
             textBox5.TabIndex = 32;
             // 
             // textBox6
             // 
             textBox6.BackColor = SystemColors.InactiveBorder;
+            textBox6.Font = new Font("Segoe UI", 12F);
             textBox6.Location = new Point(364, 423);
-            textBox6.Multiline = true;
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(276, 36);
+            textBox6.Size = new Size(276, 34);
             textBox6.TabIndex = 33;
             // 
             // button3
@@ -264,9 +273,9 @@
             button3.BackColor = Color.Red;
             button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(724, 566);
+            button3.Location = new Point(724, 568);
             button3.Name = "button3";
-            button3.Size = new Size(149, 62);
+            button3.Size = new Size(187, 60);
             button3.TabIndex = 34;
             button3.Text = "Cancel";
             button3.UseVisualStyleBackColor = false;
@@ -319,12 +328,52 @@
             // 
             button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.RoyalBlue;
-            button4.Location = new Point(724, 356);
+            button4.Location = new Point(735, 355);
             button4.Name = "button4";
             button4.Size = new Size(176, 43);
             button4.TabIndex = 41;
-            button4.Text = "Change Password";
+            button4.Text = "  Change Password";
             button4.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(25, 186);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(155, 155);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 42;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(765, 169);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(125, 106);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 43;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(88, 580);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(31, 32);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 44;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(739, 366);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(21, 24);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 45;
+            pictureBox4.TabStop = false;
             // 
             // AdminProfileControl
             // 
@@ -332,6 +381,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(963, 737);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(button4);
             Controls.Add(label16);
             Controls.Add(label15);
@@ -360,6 +413,10 @@
             Controls.Add(label1);
             Name = "AdminProfileControl";
             Text = "AdminProfileControl";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -392,5 +449,9 @@
         private Label label15;
         private Label label16;
         private Button button4;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }

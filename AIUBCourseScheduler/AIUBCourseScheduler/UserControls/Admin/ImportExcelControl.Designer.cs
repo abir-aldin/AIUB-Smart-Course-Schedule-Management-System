@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportExcelControl));
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
@@ -51,10 +52,14 @@
             ViewDetails = new DataGridViewButtonColumn();
             label9 = new Label();
             button3 = new Button();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -81,12 +86,13 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ButtonHighlight;
+            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(button1);
-            panel1.Location = new Point(60, 114);
+            panel1.Location = new Point(60, 99);
             panel1.Name = "panel1";
-            panel1.Size = new Size(403, 166);
+            panel1.Size = new Size(403, 181);
             panel1.TabIndex = 2;
             // 
             // label4
@@ -94,7 +100,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlDark;
-            label4.Location = new Point(126, 73);
+            label4.Location = new Point(126, 83);
             label4.Name = "label4";
             label4.Size = new Size(142, 17);
             label4.TabIndex = 3;
@@ -104,19 +110,19 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label3.Location = new Point(64, 53);
+            label3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label3.Location = new Point(126, 58);
             label3.Name = "label3";
-            label3.Size = new Size(249, 20);
+            label3.Size = new Size(148, 23);
             label3.TabIndex = 3;
-            label3.Text = "Drop excel file here or click browse";
+            label3.Text = "Import from excel";
             // 
             // button1
             // 
             button1.BackColor = Color.DodgerBlue;
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(116, 93);
+            button1.Location = new Point(113, 103);
             button1.Name = "button1";
             button1.Size = new Size(170, 55);
             button1.TabIndex = 3;
@@ -126,14 +132,15 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlLightLight;
+            panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
-            panel2.Location = new Point(543, 114);
+            panel2.Location = new Point(543, 99);
             panel2.Name = "panel2";
-            panel2.Size = new Size(366, 166);
+            panel2.Size = new Size(366, 181);
             panel2.TabIndex = 3;
             // 
             // label8
@@ -149,8 +156,9 @@
             // 
             // button2
             // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
             button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Location = new Point(312, 53);
+            button2.Location = new Point(309, 53);
             button2.Name = "button2";
             button2.Size = new Size(54, 51);
             button2.TabIndex = 5;
@@ -276,13 +284,33 @@
             button3.BackColor = Color.Red;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(466, 620);
+            button3.Location = new Point(347, 644);
             button3.Name = "button3";
-            button3.Size = new Size(97, 41);
+            button3.Size = new Size(280, 65);
             button3.TabIndex = 5;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(165, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(53, 38);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(6, 44);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(66, 60);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // ImportExcelControl
             // 
@@ -305,6 +333,8 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -334,5 +364,7 @@
         private DataGridViewButtonColumn ViewDetails;
         private Label label9;
         private Button button3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
     }
 }
