@@ -142,11 +142,11 @@ namespace AIUBCourseScheduler.UserControls.Student
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(550, 94);
+            button1.Location = new Point(612, 123);
             button1.Name = "button1";
-            button1.Size = new Size(385, 125);
+            button1.Size = new Size(249, 70);
             button1.TabIndex = 3;
-            button1.Text = "Generate Clash-Free Schedules\r\nSystem will generate your preferred schedules";
+            button1.Text = "Generate Clash-Free Schedules";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
