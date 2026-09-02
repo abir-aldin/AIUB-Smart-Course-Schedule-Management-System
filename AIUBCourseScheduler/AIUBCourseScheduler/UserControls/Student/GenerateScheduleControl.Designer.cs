@@ -175,9 +175,9 @@
             checkBox1.Font = new Font("Segoe UI Semibold", 8F, FontStyle.Bold);
             checkBox1.Location = new Point(691, 31);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(242, 23);
-            checkBox1.TabIndex = 12;
-            checkBox1.Text = "Avoid Early Classes (Before 8 AM)";
+            checkBox1.Size = new Size(168, 21);
+            checkBox1.TabIndex = 6;
+            checkBox1.Text = "Avoid 8:00 AM Classes";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
