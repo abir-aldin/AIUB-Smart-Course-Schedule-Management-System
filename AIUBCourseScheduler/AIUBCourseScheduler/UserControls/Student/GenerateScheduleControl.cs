@@ -750,5 +750,15 @@ namespace AIUBCourseScheduler.UserControls.Student
                         .SelectedCourses.Count > 0;
             }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
