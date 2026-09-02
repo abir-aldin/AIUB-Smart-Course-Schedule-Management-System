@@ -82,7 +82,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(7, 43, 91);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(12, 0);
             label1.Name = "label1";
             label1.Size = new Size(165, 35);
             label1.TabIndex = 0;
@@ -93,7 +93,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 8.5F);
             label2.ForeColor = SystemColors.ControlDark;
-            label2.Location = new Point(12, 48);
+            label2.Location = new Point(12, 39);
             label2.Name = "label2";
             label2.Size = new Size(630, 20);
             label2.TabIndex = 1;
@@ -103,10 +103,10 @@ namespace AIUBCourseScheduler.UserControls.Student
             // 
             groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(flowLayoutPanel1);
-            groupBox1.Location = new Point(12, 82);
+            groupBox1.Location = new Point(12, 62);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(8);
-            groupBox1.Size = new Size(510, 145);
+            groupBox1.Size = new Size(510, 131);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             // 
@@ -116,7 +116,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             flowLayoutPanel1.BackColor = Color.White;
             flowLayoutPanel1.Controls.Add(label3);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(8, 22);
+            flowLayoutPanel1.Location = new Point(5, 12);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Padding = new Padding(3);
             flowLayoutPanel1.Size = new Size(494, 110);
@@ -142,7 +142,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(612, 123);
+            button1.Location = new Point(612, 94);
             button1.Name = "button1";
             button1.Size = new Size(249, 70);
             button1.TabIndex = 3;
@@ -163,10 +163,10 @@ namespace AIUBCourseScheduler.UserControls.Student
             groupBox2.Controls.Add(checkBox2);
             groupBox2.Controls.Add(checkBox3);
             groupBox2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            groupBox2.Location = new Point(12, 245);
+            groupBox2.Location = new Point(12, 199);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(10);
-            groupBox2.Size = new Size(939, 180);
+            groupBox2.Size = new Size(939, 133);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Preference";
@@ -176,7 +176,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(12, 54);
+            label4.Location = new Point(20, 33);
             label4.Name = "label4";
             label4.Size = new Size(181, 20);
             label4.TabIndex = 0;
@@ -185,7 +185,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             // numericUpDown1
             // 
             numericUpDown1.Font = new Font("Segoe UI", 9F);
-            numericUpDown1.Location = new Point(20, 91);
+            numericUpDown1.Location = new Point(28, 70);
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 27);
             numericUpDown1.TabIndex = 1;
@@ -196,7 +196,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(240, 54);
+            label5.Location = new Point(232, 33);
             label5.Name = "label5";
             label5.Size = new Size(184, 20);
             label5.TabIndex = 2;
@@ -205,7 +205,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             // numericUpDown2
             // 
             numericUpDown2.Font = new Font("Segoe UI", 9F);
-            numericUpDown2.Location = new Point(260, 91);
+            numericUpDown2.Location = new Point(252, 70);
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(150, 27);
             numericUpDown2.TabIndex = 3;
@@ -215,7 +215,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(476, 54);
+            label6.Location = new Point(459, 33);
             label6.Name = "label6";
             label6.Size = new Size(156, 20);
             label6.TabIndex = 4;
@@ -224,7 +224,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             // numericUpDown3
             // 
             numericUpDown3.Font = new Font("Segoe UI", 9F);
-            numericUpDown3.Location = new Point(496, 91);
+            numericUpDown3.Location = new Point(479, 70);
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(150, 27);
             numericUpDown3.TabIndex = 5;
@@ -234,7 +234,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             checkBox1.AutoSize = true;
             checkBox1.Font = new Font("Segoe UI", 8.5F);
             checkBox1.ForeColor = Color.Black;
-            checkBox1.Location = new Point(690, 41);
+            checkBox1.Location = new Point(670, 16);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(179, 24);
             checkBox1.TabIndex = 6;
@@ -246,7 +246,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             checkBox2.AutoSize = true;
             checkBox2.Font = new Font("Segoe UI", 8.5F);
             checkBox2.ForeColor = Color.Black;
-            checkBox2.Location = new Point(690, 76);
+            checkBox2.Location = new Point(670, 51);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(133, 24);
             checkBox2.TabIndex = 7;
@@ -258,7 +258,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             checkBox3.AutoSize = true;
             checkBox3.Font = new Font("Segoe UI", 8.5F);
             checkBox3.ForeColor = Color.Black;
-            checkBox3.Location = new Point(690, 111);
+            checkBox3.Location = new Point(670, 86);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(179, 24);
             checkBox3.TabIndex = 8;
@@ -269,10 +269,10 @@ namespace AIUBCourseScheduler.UserControls.Student
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Location = new Point(50, 443);
+            tabControl1.Location = new Point(23, 338);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(863, 190);
+            tabControl1.Size = new Size(900, 344);
             tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -281,7 +281,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(855, 157);
+            tabPage1.Size = new Size(892, 311);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Schedule 1";
             tabPage1.UseVisualStyleBackColor = true;
@@ -301,7 +301,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(849, 151);
+            dataGridView1.Size = new Size(886, 305);
             dataGridView1.TabIndex = 0;
             // 
             // TimeColumn
@@ -351,7 +351,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(855, 157);
+            tabPage2.Size = new Size(892, 277);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Schedule 2";
             tabPage2.UseVisualStyleBackColor = true;
@@ -363,9 +363,9 @@ namespace AIUBCourseScheduler.UserControls.Student
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(328, 650);
+            button2.Location = new Point(407, 684);
             button2.Name = "button2";
-            button2.Size = new Size(305, 58);
+            button2.Size = new Size(152, 37);
             button2.TabIndex = 6;
             button2.Text = "Save Schedule";
             button2.UseVisualStyleBackColor = false;

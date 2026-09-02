@@ -271,11 +271,17 @@ namespace AIUBCourseScheduler.UserControls.Student
                     AutoSizeRowsMode =
                         DataGridViewAutoSizeRowsMode.AllCells,
 
-                    ColumnHeadersHeight = 42,
+                    ColumnHeadersHeight = 60,
 
                     ColumnHeadersHeightSizeMode =
                         DataGridViewColumnHeadersHeightSizeMode
-                            .DisableResizing
+                            .DisableResizing,
+
+                    /*
+                     * Time slot বেশি হলে horizontal
+                     * scrollbar আসবে।
+                     */
+                    ScrollBars = ScrollBars.Both
                 };
 
             grid.DefaultCellStyle.Font =
@@ -306,85 +312,38 @@ namespace AIUBCourseScheduler.UserControls.Student
 
             grid.EnableHeadersVisualStyles = false;
 
-            grid.Columns.Add(
-                CreateScheduleColumn(
-                    "TimeColumn",
-                    "Time",
-                    isTimeColumn: true
-                )
-            );
-
-            grid.Columns.Add(
-                CreateScheduleColumn(
-                    "Sunday",
-                    "Sunday"
-                )
-            );
-
-            grid.Columns.Add(
-                CreateScheduleColumn(
-                    "Monday",
-                    "Monday"
-                )
-            );
-
-            grid.Columns.Add(
-                CreateScheduleColumn(
-                    "Tuesday",
-                    "Tuesday"
-                )
-            );
-
-            grid.Columns.Add(
-                CreateScheduleColumn(
-                    "Wednesday",
-                    "Wednesday"
-                )
-            );
-
-            grid.Columns.Add(
-                CreateScheduleColumn(
-                    "Thursday",
-                    "Thursday"
-                )
-            );
-
-            return grid;
-        }
-
-        private static DataGridViewTextBoxColumn
-            CreateScheduleColumn(
-                string columnName,
-                string headerText,
-                bool isTimeColumn = false)
-        {
-            DataGridViewTextBoxColumn column =
+            /*
+             * Transposed schedule-এ প্রথম column হবে Day।
+             * Time columns পরে dynamically তৈরি হবে।
+             */
+            DataGridViewTextBoxColumn dayColumn =
                 new DataGridViewTextBoxColumn
                 {
-                    Name = columnName,
-                    HeaderText = headerText,
+                    Name = "DayColumn",
+                    HeaderText = "Day",
+
+                    Width = 110,
+                    MinimumWidth = 110,
+
+                    Frozen = true,
 
                     SortMode =
-                        DataGridViewColumnSortMode
-                            .NotSortable
+                        DataGridViewColumnSortMode.NotSortable
                 };
 
-            if (isTimeColumn)
-            {
-                column.Width = 125;
+            dayColumn.DefaultCellStyle.Font =
+                new Font(
+                    "Segoe UI",
+                    8.5F,
+                    FontStyle.Bold
+                );
 
-                column.AutoSizeMode =
-                    DataGridViewAutoSizeColumnMode.None;
-            }
-            else
-            {
-                column.AutoSizeMode =
-                    DataGridViewAutoSizeColumnMode.Fill;
+            dayColumn.DefaultCellStyle.BackColor =
+                Color.FromArgb(225, 238, 255);
 
-                column.FillWeight = 100;
-            }
+            grid.Columns.Add(dayColumn);
 
-            return column;
+            return grid;
         }
 
         private static void FillScheduleGrid(
@@ -393,6 +352,7 @@ namespace AIUBCourseScheduler.UserControls.Student
         {
             /*
              * Schedule-এর সব unique class time বের করা হচ্ছে।
+             * প্রতিটি unique time একটি column হবে।
              */
             List<(
                 TimeSpan StartTime,
@@ -421,9 +381,13 @@ namespace AIUBCourseScheduler.UserControls.Student
                         )
                         .ToList();
 
+            /*
+             * প্রতিটি time slot কোন column-এ আছে
+             * সেটি এখানে রাখা হবে।
+             */
             Dictionary<
                 (TimeSpan StartTime, TimeSpan EndTime),
-                int> rowIndexes =
+                int> timeColumnIndexes =
                     new Dictionary<
                         (
                             TimeSpan StartTime,
@@ -431,21 +395,81 @@ namespace AIUBCourseScheduler.UserControls.Student
                         ),
                         int>();
 
-            foreach (var timeSlot in timeSlots)
+            for (int index = 0;
+                 index < timeSlots.Count;
+                 index++)
+            {
+                var timeSlot =
+                    timeSlots[index];
+
+                DataGridViewTextBoxColumn timeColumn =
+                    new DataGridViewTextBoxColumn
+                    {
+                        Name =
+                            $"TimeSlotColumn{index + 1}",
+
+                        HeaderText =
+                            FormatTime(
+                                timeSlot.StartTime
+                            ) +
+                            " - " +
+                            FormatTime(
+                                timeSlot.EndTime
+                            ),
+
+                        Width = 165,
+                        MinimumWidth = 145,
+
+                        AutoSizeMode =
+                            DataGridViewAutoSizeColumnMode.None,
+
+                        SortMode =
+                            DataGridViewColumnSortMode.NotSortable
+                    };
+
+                grid.Columns.Add(timeColumn);
+
+                timeColumnIndexes.Add(
+                    timeSlot,
+                    grid.Columns.Count - 1
+                );
+            }
+
+            /*
+             * Transposed schedule-এ প্রতিটি day
+             * একটি row হবে।
+             */
+            string[] days =
+            {
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday"
+            };
+
+            Dictionary<string, int> dayRowIndexes =
+                new Dictionary<string, int>(
+                    StringComparer.OrdinalIgnoreCase
+                );
+
+            foreach (string day in days)
             {
                 int rowIndex =
-                    grid.Rows.Add(
-                        FormatTime(timeSlot.StartTime) +
-                        " - " +
-                        FormatTime(timeSlot.EndTime)
-                    );
+                    grid.Rows.Add(day);
 
-                rowIndexes.Add(
-                    timeSlot,
+                grid.Rows[rowIndex].MinimumHeight = 75;
+
+                dayRowIndexes.Add(
+                    day,
                     rowIndex
                 );
             }
 
+            /*
+             * প্রত্যেক meeting তার day row এবং
+             * time column অনুযায়ী grid-এ বসানো হবে।
+             */
             foreach (ScheduleOffering offering in
                 schedule.Offerings)
             {
@@ -457,6 +481,16 @@ namespace AIUBCourseScheduler.UserControls.Student
                 foreach (ScheduleMeeting meeting in
                     offering.Meetings)
                 {
+                    string meetingDay =
+                        meeting.MeetingDay.Trim();
+
+                    if (!dayRowIndexes.TryGetValue(
+                        meetingDay,
+                        out int dayRowIndex))
+                    {
+                        continue;
+                    }
+
                     var meetingSlot =
                         (
                             StartTime:
@@ -466,19 +500,9 @@ namespace AIUBCourseScheduler.UserControls.Student
                                 meeting.EndTime
                         );
 
-                    if (!rowIndexes.TryGetValue(
+                    if (!timeColumnIndexes.TryGetValue(
                         meetingSlot,
-                        out int rowIndex))
-                    {
-                        continue;
-                    }
-
-                    int dayColumnIndex =
-                        GetDayColumnIndex(
-                            meeting.MeetingDay
-                        );
-
-                    if (dayColumnIndex < 0)
+                        out int timeColumnIndex))
                     {
                         continue;
                     }
@@ -488,41 +512,31 @@ namespace AIUBCourseScheduler.UserControls.Student
                         $"Section: {offering.Section}\n" +
                         $"Room: {meeting.Room}";
 
-                    grid.Rows[rowIndex]
-                        .Cells[dayColumnIndex]
-                        .Value = classInformation;
+                    DataGridViewCell targetCell =
+                        grid.Rows[dayRowIndex]
+                            .Cells[timeColumnIndex];
+
+                    /*
+                     * একই cell-এ কোনো information থাকলে
+                     * নতুন information নিচে যোগ হবে।
+                     */
+                    string existingInformation =
+                        Convert.ToString(
+                            targetCell.Value
+                        ) ?? "";
+
+                    targetCell.Value =
+                        string.IsNullOrWhiteSpace(
+                            existingInformation
+                        )
+                            ? classInformation
+                            : existingInformation +
+                              "\n----------------\n" +
+                              classInformation;
                 }
             }
 
             grid.ClearSelection();
-        }
-
-        private static int GetDayColumnIndex(
-            string meetingDay)
-        {
-            switch (
-                meetingDay
-                    .Trim()
-                    .ToLowerInvariant())
-            {
-                case "sunday":
-                    return 1;
-
-                case "monday":
-                    return 2;
-
-                case "tuesday":
-                    return 3;
-
-                case "wednesday":
-                    return 4;
-
-                case "thursday":
-                    return 5;
-
-                default:
-                    return -1;
-            }
         }
 
         private static string FormatTime(
@@ -700,10 +714,16 @@ namespace AIUBCourseScheduler.UserControls.Student
                                 checkBox3.Checked
                         );
 
+                /*
+                 * Preference অনুযায়ী ranked schedules থেকে
+                 * যতটা সম্ভব আলাদা sections-এর schedules নেওয়া হবে।
+                 */
                 generatedSchedules =
-                    rankedSchedules
-                        .Take(requestedScheduleCount)
-                        .ToList();
+                    ScheduleDiversityService
+                        .SelectDiverseSchedules(
+                            rankedSchedules,
+                            requestedScheduleCount
+                        );
 
                 // Generated schedules TabControl-এ দেখানো হচ্ছে
                 ShowGeneratedSchedules();
@@ -751,12 +771,16 @@ namespace AIUBCourseScheduler.UserControls.Student
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(
+            object sender,
+            EventArgs e)
         {
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void tabPage1_Click(
+            object sender,
+            EventArgs e)
         {
 
         }
