@@ -1,14 +1,17 @@
 ﻿using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace AIUBCourseScheduler.DataAccess
 {
-    public static class DatabaseConnection
+    internal class DatabaseConnection
     {
-        private const string ConnectionString =
-            @"Server=.\SQLEXPRESS;
-              Database=AIUBCourseScheduleDB;
-              Integrated Security=True;
-              TrustServerCertificate=True;";
+        private const string ConnectionString = @"
+                Server = (localdb)\MSSQLLocalDB;
+                Database = AIUBCourseScheduleDB;
+                Integrated Security = True;
+                TrustServerCertificate = True;";
 
         public static SqlConnection GetConnection()
         {
