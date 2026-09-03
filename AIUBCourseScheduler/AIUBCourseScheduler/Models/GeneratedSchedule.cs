@@ -2,7 +2,7 @@
 
 namespace AIUBCourseScheduler.Models
 {
-    internal class GeneratedSchedule
+    public class GeneratedSchedule
     {
         /*
          * একটি generated schedule-এর মধ্যে

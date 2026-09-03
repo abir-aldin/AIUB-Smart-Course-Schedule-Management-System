@@ -2,7 +2,7 @@
 
 namespace AIUBCourseScheduler.Models
 {
-    internal class ScheduleMeeting
+    public class ScheduleMeeting
     {
         // ClassMeetings table-এর primary key
         public int MeetingId { get; set; }
