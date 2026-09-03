@@ -128,7 +128,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(836, 249);
             panel1.TabIndex = 4;
-            panel1.Paint += panel1_Paint;
             // 
             // dataGridView2
             // 

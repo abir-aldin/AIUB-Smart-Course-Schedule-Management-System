@@ -5,6 +5,7 @@ namespace AIUBCourseScheduler.DataAccess
 {
     public static class ScheduleRepository
     {
+
         public static bool SaveGeneratedSchedules(
             List<GeneratedSchedule> schedules,
             int studentUserId)
