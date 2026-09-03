@@ -2,7 +2,7 @@
 
 namespace AIUBCourseScheduler.Models
 {
-    internal class ScheduleOffering
+    public class ScheduleOffering
     {
         // CourseOfferings table-এর primary key
         public int OfferingId { get; set; }
