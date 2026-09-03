@@ -1,4 +1,5 @@
-﻿using AIUBCourseScheduler.Models;
+﻿using AIUBCourseScheduler.DataAccess;
+using AIUBCourseScheduler.Models;
 using AIUBCourseScheduler.Services;
 using Microsoft.Data.SqlClient;
 using System;
@@ -783,6 +784,56 @@ namespace AIUBCourseScheduler.UserControls.Student
             EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (generatedSchedules == null ||
+        generatedSchedules.Count == 0)
+            {
+                MessageBox.Show(
+                    "No generated schedule available to save.",
+                    "Nothing to Save",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+
+            try
+            {
+                bool saved =
+                    ScheduleRepository
+                        .SaveGeneratedSchedules(
+                            generatedSchedules,
+                            UserSession.UserId
+                        );
+
+
+                if (saved)
+                {
+                    MessageBox.Show(
+                        "All generated schedules saved successfully.",
+                        "Save Successful",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+
+                    button2.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Could not save schedules.\n\n" +
+                    ex.Message,
+                    "Save Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
     }
 }

@@ -351,7 +351,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(892, 277);
+            tabPage2.Size = new Size(892, 311);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Schedule 2";
             tabPage2.UseVisualStyleBackColor = true;
@@ -369,6 +369,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             button2.TabIndex = 6;
             button2.Text = "Save Schedule";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // GenerateScheduleControl
             // 
