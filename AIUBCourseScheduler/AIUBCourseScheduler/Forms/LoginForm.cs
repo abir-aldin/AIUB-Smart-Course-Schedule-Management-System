@@ -115,10 +115,10 @@ namespace AIUBCourseScheduler.Forms
                 button1.Enabled = false;
                 button1.Text = "SIGNING IN...";
 
-                using SqlConnection connection =
-                    DatabaseConnection.GetConnection();
+                using SqlConnection connection = DatabaseConnection.GetConnection();
 
                 await connection.OpenAsync();
+                
 
                 string query = @"
                     SELECT TOP (1)
