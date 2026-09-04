@@ -36,6 +36,7 @@
             CreatedDate = new DataGridViewTextBoxColumn();
             Courses = new DataGridViewTextBoxColumn();
             Dataview = new DataGridViewButtonColumn();
+            Action2 = new DataGridViewButtonColumn();
             panel1 = new Panel();
             dataGridView2 = new DataGridView();
             Time = new DataGridViewTextBoxColumn();
@@ -55,7 +56,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(12, 19);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(192, 37);
             label1.TabIndex = 0;
@@ -74,21 +75,22 @@
             button1.BackColor = SystemColors.MenuHighlight;
             button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(369, 641);
+            button1.Location = new Point(417, 681);
             button1.Name = "button1";
-            button1.Size = new Size(250, 68);
+            button1.Size = new Size(146, 44);
             button1.TabIndex = 2;
             button1.Text = "Submit";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Schedule, CreatedDate, Courses, Dataview });
-            dataGridView1.Location = new Point(183, 102);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Schedule, CreatedDate, Courses, Dataview, Action2 });
+            dataGridView1.Location = new Point(160, 61);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(546, 234);
+            dataGridView1.Size = new Size(678, 183);
             dataGridView1.TabIndex = 3;
             // 
             // Schedule
@@ -119,24 +121,31 @@
             Dataview.Name = "Dataview";
             Dataview.Width = 125;
             // 
+            // Action2
+            // 
+            Action2.HeaderText = "Actions";
+            Action2.MinimumWidth = 6;
+            Action2.Name = "Action2";
+            Action2.Width = 125;
+            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
             panel1.Controls.Add(dataGridView2);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(54, 367);
+            panel1.Location = new Point(54, 259);
             panel1.Name = "panel1";
-            panel1.Size = new Size(836, 249);
+            panel1.Size = new Size(871, 416);
             panel1.TabIndex = 4;
             // 
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Time, Sunday, Monday, Tuesday, Wednesday, Thursday });
-            dataGridView2.Location = new Point(16, 41);
+            dataGridView2.Location = new Point(3, 26);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(802, 188);
+            dataGridView2.Size = new Size(865, 387);
             dataGridView2.TabIndex = 1;
             // 
             // Time
@@ -185,7 +194,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            label3.Location = new Point(16, 15);
+            label3.Location = new Point(3, 0);
             label3.Name = "label3";
             label3.Size = new Size(309, 23);
             label3.TabIndex = 0;
@@ -217,10 +226,6 @@
         private Label label2;
         private Button button1;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Schedule;
-        private DataGridViewTextBoxColumn CreatedDate;
-        private DataGridViewTextBoxColumn Courses;
-        private DataGridViewButtonColumn Dataview;
         private Panel panel1;
         private Label label3;
         private DataGridView dataGridView2;
@@ -230,5 +235,10 @@
         private DataGridViewTextBoxColumn Tuesday;
         private DataGridViewTextBoxColumn Wednesday;
         private DataGridViewTextBoxColumn Thursday;
+        private DataGridViewTextBoxColumn Schedule;
+        private DataGridViewTextBoxColumn CreatedDate;
+        private DataGridViewTextBoxColumn Courses;
+        private DataGridViewButtonColumn Dataview;
+        private DataGridViewButtonColumn Action2;
     }
 }
