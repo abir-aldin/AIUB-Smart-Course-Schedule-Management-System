@@ -42,10 +42,13 @@
             button4 = new Button();
             button5 = new Button();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             label3 = new Label();
             panel2 = new Panel();
+            pictureBox2 = new PictureBox();
             label4 = new Label();
             panel3 = new Panel();
+            pictureBox3 = new PictureBox();
             label11 = new Label();
             dgvRequests = new DataGridView();
             colRequestId = new DataGridViewTextBoxColumn();
@@ -55,24 +58,20 @@
             colActions = new DataGridViewButtonColumn();
             groupBox1 = new GroupBox();
             dataGridView1 = new DataGridView();
-            colCourseCode = new DataGridViewTextBoxColumn();
             colCourseTitle = new DataGridViewTextBoxColumn();
             colSection = new DataGridViewTextBoxColumn();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvRequests).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -186,34 +185,37 @@
             // 
             button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button1.ForeColor = Color.DarkBlue;
-            button1.Location = new Point(96, 650);
+            button1.Location = new Point(88, 635);
             button1.Name = "button1";
             button1.Size = new Size(233, 59);
             button1.TabIndex = 22;
             button1.Text = "View Schedule";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button4
             // 
             button4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button4.ForeColor = Color.Green;
-            button4.Location = new Point(392, 650);
+            button4.Location = new Point(384, 635);
             button4.Name = "button4";
             button4.Size = new Size(220, 59);
             button4.TabIndex = 26;
             button4.Text = "Approve";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
             button5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             button5.ForeColor = Color.Crimson;
-            button5.Location = new Point(699, 650);
+            button5.Location = new Point(691, 635);
             button5.Name = "button5";
             button5.Size = new Size(214, 59);
             button5.TabIndex = 28;
             button5.Text = "Reject";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // panel1
             // 
@@ -226,6 +228,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(266, 96);
             panel1.TabIndex = 31;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(10, 25);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(41, 38);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 39;
+            pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -250,6 +262,16 @@
             panel2.Size = new Size(262, 96);
             panel2.TabIndex = 33;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(15, 18);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(52, 55);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 39;
+            pictureBox2.TabStop = false;
+            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -273,6 +295,16 @@
             panel3.Size = new Size(261, 96);
             panel3.TabIndex = 35;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(22, 28);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(41, 38);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 39;
+            pictureBox3.TabStop = false;
+            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -290,7 +322,7 @@
             dgvRequests.BackgroundColor = SystemColors.ButtonFace;
             dgvRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRequests.Columns.AddRange(new DataGridViewColumn[] { colRequestId, colStudent, colSubmittedDate, colStatus, colActions });
-            dgvRequests.Location = new Point(88, 259);
+            dgvRequests.Location = new Point(88, 251);
             dgvRequests.Name = "dgvRequests";
             dgvRequests.ReadOnly = true;
             dgvRequests.RowHeadersVisible = false;
@@ -346,9 +378,9 @@
             groupBox1.Controls.Add(dataGridView1);
             groupBox1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.MidnightBlue;
-            groupBox1.Location = new Point(96, 430);
+            groupBox1.Location = new Point(96, 419);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(611, 195);
+            groupBox1.Size = new Size(718, 195);
             groupBox1.TabIndex = 38;
             groupBox1.TabStop = false;
             groupBox1.Text = "Selected Course";
@@ -361,22 +393,15 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ButtonFace;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colCourseCode, colCourseTitle, colSection });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colCourseTitle, colSection });
             dataGridView1.Location = new Point(13, 40);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(591, 127);
+            dataGridView1.Size = new Size(699, 127);
             dataGridView1.TabIndex = 0;
-            // 
-            // colCourseCode
-            // 
-            colCourseCode.HeaderText = "Course Code";
-            colCourseCode.MinimumWidth = 6;
-            colCourseCode.Name = "colCourseCode";
-            colCourseCode.ReadOnly = true;
             // 
             // colCourseTitle
             // 
@@ -392,42 +417,12 @@
             colSection.Name = "colSection";
             colSection.ReadOnly = true;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(10, 25);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(41, 38);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 39;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(15, 18);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(52, 55);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 39;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(22, 28);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(41, 38);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 39;
-            pictureBox3.TabStop = false;
-            // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(99, 663);
+            pictureBox4.Location = new Point(101, 648);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(47, 36);
+            pictureBox4.Size = new Size(33, 31);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 39;
             pictureBox4.TabStop = false;
@@ -435,7 +430,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(407, 663);
+            pictureBox5.Location = new Point(399, 648);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(37, 31);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -445,7 +440,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(721, 663);
+            pictureBox6.Location = new Point(713, 648);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(29, 30);
             pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -476,16 +471,16 @@
             Load += ScheduleRequestsControl_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvRequests).EndInit();
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
@@ -516,9 +511,6 @@
         private DataGridView dgvRequests;
         private GroupBox groupBox1;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn colCourseCode;
-        private DataGridViewTextBoxColumn colCourseTitle;
-        private DataGridViewTextBoxColumn colSection;
         private DataGridViewTextBoxColumn colRequestId;
         private DataGridViewTextBoxColumn colStudent;
         private DataGridViewTextBoxColumn colSubmittedDate;
@@ -530,5 +522,7 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
+        private DataGridViewTextBoxColumn colCourseTitle;
+        private DataGridViewTextBoxColumn colSection;
     }
 }

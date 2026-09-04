@@ -345,7 +345,7 @@
             Controls.Add(label1);
             Name = "RequestStatusControl";
             Text = "RequestStatusControl";
-            Load += RequestStatusControl_Load;
+            Load += ScheduleRequestsControl_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

@@ -623,6 +623,464 @@ namespace AIUBCourseScheduler.DataAccess
             }
         }
 
+        public static List<ScheduleRequestViewModel> GetAllScheduleRequests()
+        {
+            List<ScheduleRequestViewModel> requests =
+                new List<ScheduleRequestViewModel>();
+
+            using SqlConnection connection =
+                DatabaseConnection.GetConnection();
+
+            connection.Open();
+
+            string query = @"
+        SELECT
+            SR.RequestId,
+            SR.StudentUserId,
+            U.FullName,
+            SR.SavedScheduleId,
+            SR.ScheduleName,
+            SR.RequestStatus,
+            SR.SubmittedAt,
+            SR.AdminComment
+
+        FROM ScheduleRequests SR
+
+        INNER JOIN Users U
+            ON SR.StudentUserId = U.UserId
+
+        ORDER BY SR.SubmittedAt DESC
+    ";
+
+
+            using SqlCommand command =
+                new SqlCommand(query, connection);
+
+
+            using SqlDataReader reader =
+                command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                requests.Add(
+                    new ScheduleRequestViewModel
+                    {
+                        RequestId = reader.GetInt32(0),
+
+                        StudentUserId = reader.GetInt32(1),
+
+                        StudentName =
+                            reader.GetString(2),
+
+                        SavedScheduleId =
+                            reader.GetInt32(3),
+
+                        ScheduleName =
+                            reader.GetString(4),
+
+                        RequestStatus =
+                            reader.GetString(5),
+
+                        SubmittedAt =
+                            reader.GetDateTime(6),
+
+                        AdminComment =
+                            reader.IsDBNull(7)
+                            ? ""
+                            : reader.GetString(7)
+                    });
+            }
+
+
+            return requests;
+        }
+
+        public static List<ScheduleRequestViewModel> GetStudentScheduleRequests(
+    int studentUserId)
+        {
+            List<ScheduleRequestViewModel> requests =
+                new List<ScheduleRequestViewModel>();
+
+            using SqlConnection connection =
+                DatabaseConnection.GetConnection();
+
+            connection.Open();
+
+
+            string query = @"
+        SELECT
+            SR.RequestId,
+            SR.StudentUserId,
+            U.FullName,
+            SR.SavedScheduleId,
+            SR.ScheduleName,
+            SR.RequestStatus,
+            SR.SubmittedAt,
+            SR.AdminComment
+
+        FROM ScheduleRequests SR
+
+        INNER JOIN Users U
+            ON SR.StudentUserId = U.UserId
+
+        WHERE SR.StudentUserId = @StudentUserId
+
+        ORDER BY SR.SubmittedAt DESC
+    ";
+
+
+            using SqlCommand command =
+                new SqlCommand(query, connection);
+
+
+            command.Parameters.AddWithValue(
+                "@StudentUserId",
+                studentUserId);
+
+
+            using SqlDataReader reader =
+                command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                requests.Add(
+                    new ScheduleRequestViewModel
+                    {
+                        RequestId = reader.GetInt32(0),
+
+                        StudentUserId = reader.GetInt32(1),
+
+                        StudentName =
+                            reader.GetString(2),
+
+                        SavedScheduleId =
+                            reader.GetInt32(3),
+
+                        ScheduleName =
+                            reader.GetString(4),
+
+                        RequestStatus =
+                            reader.GetString(5),
+
+                        SubmittedAt =
+                            reader.GetDateTime(6),
+
+                        AdminComment =
+                            reader.IsDBNull(7)
+                            ? ""
+                            : reader.GetString(7)
+                    });
+            }
+
+
+            return requests;
+        }
+
+
+
+        public static bool ApproveScheduleRequest(
+    int requestId,
+    int adminId)
+        {
+            using SqlConnection connection =
+                DatabaseConnection.GetConnection();
+
+            connection.Open();
+
+
+            using SqlTransaction transaction =
+                connection.BeginTransaction();
+
+
+            try
+            {
+
+                // Check section capacity before approval
+
+                string capacityCheckQuery = @"
+SELECT COUNT(*)
+FROM SavedScheduleDetails SSD
+
+INNER JOIN CourseOfferings CO
+ON SSD.CourseId = CO.CourseId
+AND SSD.Section = CO.Section
+
+WHERE SSD.SavedScheduleId =
+(
+    SELECT SavedScheduleId
+    FROM ScheduleRequests
+    WHERE RequestId = @RequestId
+)
+
+AND ISNULL(CO.EnrolledCount,0) >= CO.Capacity
+";
+
+
+                using SqlCommand capacityCommand =
+                    new SqlCommand(
+                        capacityCheckQuery,
+                        connection,
+                        transaction);
+
+
+                capacityCommand.Parameters.AddWithValue(
+                    "@RequestId",
+                    requestId);
+
+
+                int fullSections =
+                    (int)capacityCommand.ExecuteScalar();
+
+
+                if (fullSections > 0)
+                {
+                    return false;
+                }
+
+
+
+                // Update request status
+
+                string updateRequest = @"
+UPDATE ScheduleRequests
+SET
+    RequestStatus='Approved',
+    ReviewedAt=SYSUTCDATETIME(),
+    ReviewedByUserId=@AdminId
+
+WHERE RequestId=@RequestId
+";
+
+
+                using SqlCommand cmd =
+                    new SqlCommand(
+                        updateRequest,
+                        connection,
+                        transaction);
+
+
+                cmd.Parameters.AddWithValue(
+                    "@AdminId",
+                    adminId);
+
+                cmd.Parameters.AddWithValue(
+                    "@RequestId",
+                    requestId);
+
+
+                cmd.ExecuteNonQuery();
+
+
+
+
+                // Update saved schedule status
+
+                string updateSchedule = @"
+UPDATE SavedSchedules
+SET Status='Approved'
+
+WHERE SavedScheduleId =
+(
+    SELECT SavedScheduleId
+    FROM ScheduleRequests
+    WHERE RequestId=@RequestId
+)
+";
+
+
+                using SqlCommand cmd2 =
+                    new SqlCommand(
+                        updateSchedule,
+                        connection,
+                        transaction);
+
+
+                cmd2.Parameters.AddWithValue(
+                    "@RequestId",
+                    requestId);
+
+
+                cmd2.ExecuteNonQuery();
+
+
+
+
+                // Increase section enrolled count
+
+                string updateEnrollment = @"
+UPDATE CourseOfferings
+SET EnrolledCount = ISNULL(EnrolledCount,0) + 1
+
+WHERE OfferingId IN
+(
+    SELECT CO.OfferingId
+    FROM SavedScheduleDetails SSD
+
+    INNER JOIN CourseOfferings CO
+    ON SSD.CourseId = CO.CourseId
+    AND SSD.Section = CO.Section
+
+    WHERE SSD.SavedScheduleId =
+    (
+        SELECT SavedScheduleId
+        FROM ScheduleRequests
+        WHERE RequestId = @RequestId
+    )
+)
+";
+
+
+                using SqlCommand cmd3 =
+                    new SqlCommand(
+                        updateEnrollment,
+                        connection,
+                        transaction);
+
+
+                cmd3.Parameters.AddWithValue(
+                    "@RequestId",
+                    requestId);
+
+
+                cmd3.ExecuteNonQuery();
+
+
+
+                transaction.Commit();
+
+                return true;
+
+            }
+            catch
+            {
+                transaction.Rollback();
+                throw;
+            }
+        }
+
+
+
+
+        public static bool RejectScheduleRequest(
+            int requestId,
+            int adminId,
+            string comment)
+        {
+            using SqlConnection connection =
+                DatabaseConnection.GetConnection();
+
+
+            connection.Open();
+
+
+            string query = @"
+        UPDATE ScheduleRequests
+
+        SET
+            RequestStatus='Rejected',
+            ReviewedAt=SYSUTCDATETIME(),
+            ReviewedByUserId=@AdminId,
+            AdminComment=@Comment
+
+        WHERE RequestId=@RequestId
+    ";
+
+
+            using SqlCommand command =
+                new SqlCommand(query, connection);
+
+
+            command.Parameters.AddWithValue(
+                "@AdminId",
+                adminId);
+
+
+            command.Parameters.AddWithValue(
+                "@Comment",
+                comment);
+
+
+            command.Parameters.AddWithValue(
+                "@RequestId",
+                requestId);
+
+
+            return command.ExecuteNonQuery() > 0;
+        }
+
+        public static List<SavedScheduleDetailViewModel> GetRequestCourses(
+    int savedScheduleId)
+        {
+            List<SavedScheduleDetailViewModel> courses =
+                new List<SavedScheduleDetailViewModel>();
+
+            using SqlConnection connection =
+                DatabaseConnection.GetConnection();
+
+            connection.Open();
+
+
+            string query = @"
+                    SELECT 
+    CourseTitle,
+    Section,
+    Day,
+    StartTime,
+    EndTime,
+    Room
+FROM
+(
+    SELECT DISTINCT
+        C.CourseTitle,
+        SSD.Section,
+        SSD.Day,
+        SSD.StartTime,
+        SSD.EndTime,
+        SSD.Room
+    FROM SavedScheduleDetails SSD
+    JOIN Courses C
+    ON SSD.CourseId = C.CourseId
+    WHERE SSD.SavedScheduleId = @SavedScheduleId
+) AS Result
+
+ORDER BY StartTime
+
+    ";
+
+
+            using SqlCommand command =
+                new SqlCommand(query, connection);
+
+
+            command.Parameters.AddWithValue(
+                "@SavedScheduleId",
+                savedScheduleId);
+
+
+            using SqlDataReader reader =
+                command.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                courses.Add(
+                    new SavedScheduleDetailViewModel
+                    {
+                        CourseTitle = reader.GetString(0),
+                        Section = reader.GetString(1),
+                        Day = reader.GetString(2),
+                        StartTime = reader.GetTimeSpan(3),
+                        EndTime = reader.GetTimeSpan(4),
+                        Room = reader.GetString(5)
+                    });
+            }
+
+
+            return courses;
+        }
+
 
 
         private static string GenerateScheduleHash(
