@@ -32,8 +32,6 @@ namespace AIUBCourseScheduler.Forms
 
             AdminDashboardControl dashboardControl = new AdminDashboardControl();
 
-            dashboardControl.TopLevel = false;
-            dashboardControl.FormBorderStyle = FormBorderStyle.None;
             dashboardControl.Dock = DockStyle.Fill;
             dashboardControl.ForeColor = Color.Black;
 
