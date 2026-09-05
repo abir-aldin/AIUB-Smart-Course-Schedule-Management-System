@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -64,9 +65,19 @@
             label16 = new Label();
             button1 = new Button();
             button2 = new Button();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            label21 = new Label();
+            label22 = new Label();
+            label23 = new Label();
+            label24 = new Label();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -432,11 +443,112 @@
             button2.Text = "Save Section";
             button2.UseVisualStyleBackColor = false;
             // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.ForeColor = Color.Red;
+            label17.Location = new Point(589, 88);
+            label17.Name = "label17";
+            label17.Size = new Size(20, 25);
+            label17.TabIndex = 25;
+            label17.Text = "*";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.ForeColor = Color.Red;
+            label18.Location = new Point(89, 88);
+            label18.Name = "label18";
+            label18.Size = new Size(20, 25);
+            label18.TabIndex = 26;
+            label18.Text = "*";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.ForeColor = Color.Red;
+            label19.Location = new Point(134, 226);
+            label19.Name = "label19";
+            label19.Size = new Size(20, 25);
+            label19.TabIndex = 27;
+            label19.Text = "*";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label20.ForeColor = Color.Red;
+            label20.Location = new Point(101, 298);
+            label20.Name = "label20";
+            label20.Size = new Size(20, 25);
+            label20.TabIndex = 28;
+            label20.Text = "*";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = Color.Red;
+            label21.Location = new Point(589, 298);
+            label21.Name = "label21";
+            label21.Size = new Size(20, 25);
+            label21.TabIndex = 29;
+            label21.Text = "*";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.ForeColor = Color.Red;
+            label22.Location = new Point(594, 226);
+            label22.Name = "label22";
+            label22.Size = new Size(20, 25);
+            label22.TabIndex = 30;
+            label22.Text = "*";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.ForeColor = Color.Red;
+            label23.Location = new Point(534, 155);
+            label23.Name = "label23";
+            label23.Size = new Size(20, 25);
+            label23.TabIndex = 31;
+            label23.Text = "*";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label24.ForeColor = Color.Red;
+            label24.Location = new Point(94, 155);
+            label24.Name = "label24";
+            label24.Size = new Size(20, 25);
+            label24.TabIndex = 32;
+            label24.Text = "*";
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            errorProvider1.ContainerControl = this;
+            // 
             // SectionEditorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(882, 703);
+            Controls.Add(label24);
+            Controls.Add(label23);
+            Controls.Add(label22);
+            Controls.Add(label21);
+            Controls.Add(label20);
+            Controls.Add(label19);
+            Controls.Add(label18);
+            Controls.Add(label17);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label16);
@@ -468,6 +580,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -510,5 +623,14 @@
         private Label label16;
         private Button button1;
         private Button button2;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label label23;
+        private Label label24;
+        private ErrorProvider errorProvider1;
     }
 }

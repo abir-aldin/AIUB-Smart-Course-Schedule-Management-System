@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.VariantTypes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,9 +41,10 @@ namespace AIUBCourseScheduler.Forms
 
         }
 
-        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
     }
+
 }
+
+       
+
