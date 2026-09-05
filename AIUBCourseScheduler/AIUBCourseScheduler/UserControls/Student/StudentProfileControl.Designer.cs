@@ -32,6 +32,7 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             panel5 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
@@ -67,10 +68,9 @@
             textBox1 = new TextBox();
             label16 = new Label();
             label15 = new Label();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
-            panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -120,6 +120,16 @@
             panel1.Size = new Size(299, 634);
             panel1.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(74, 34);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(135, 92);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            // 
             // panel5
             // 
             panel5.BackColor = SystemColors.ActiveCaptionText;
@@ -155,7 +165,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(124, 552);
+            label14.Location = new Point(89, 550);
             label14.Name = "label14";
             label14.Size = new Size(135, 20);
             label14.TabIndex = 13;
@@ -173,7 +183,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(124, 468);
+            label12.Location = new Point(109, 468);
             label12.Name = "label12";
             label12.Size = new Size(100, 20);
             label12.TabIndex = 11;
@@ -191,7 +201,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(137, 384);
+            label10.Location = new Point(116, 384);
             label10.Name = "label10";
             label10.Size = new Size(81, 20);
             label10.TabIndex = 9;
@@ -208,7 +218,7 @@
             // 
             // label8
             // 
-            label8.Location = new Point(124, 296);
+            label8.Location = new Point(109, 296);
             label8.Name = "label8";
             label8.Size = new Size(159, 41);
             label8.TabIndex = 7;
@@ -226,7 +236,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(140, 223);
+            label6.Location = new Point(109, 223);
             label6.Name = "label6";
             label6.Size = new Size(123, 20);
             label6.TabIndex = 5;
@@ -264,7 +274,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.Highlight;
-            label3.Location = new Point(96, 138);
+            label3.Location = new Point(67, 138);
             label3.Name = "label3";
             label3.Size = new Size(101, 28);
             label3.TabIndex = 1;
@@ -472,16 +482,6 @@
             label15.TabIndex = 0;
             label15.Text = "Edit Profile Information";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(74, 34);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(135, 92);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 14;
-            pictureBox1.TabStop = false;
-            // 
             // StudentProfileControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -495,9 +495,9 @@
             Text = "StudentProfileControl";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
