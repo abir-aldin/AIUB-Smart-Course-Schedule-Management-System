@@ -200,5 +200,14 @@ ORDER BY SR.SubmittedAt DESC
                 "Status";
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
