@@ -311,12 +311,20 @@ namespace AIUBCourseScheduler.Forms
             forgotForm.ShowDialog(this);
         }
 
-        private void DestinationForm_FormClosed(object? sender, FormClosedEventArgs e)
+        private void DestinationForm_FormClosed(
+    object? sender,
+    FormClosedEventArgs e)
         {
             UserSession.Clear();
 
-            if (sender is AdminMainForm adminForm &&
-                adminForm.IsLoggingOut)
+            bool isLoggingOut =
+                (sender is AdminMainForm adminForm &&
+                 adminForm.IsLoggingOut)
+                ||
+                (sender is StudentMainForm studentForm &&
+                 studentForm.IsLoggingOut);
+
+            if (isLoggingOut)
             {
                 button1.Enabled = true;
 
@@ -332,10 +340,11 @@ namespace AIUBCourseScheduler.Forms
 
                 Show();
                 Activate();
+
                 return;
             }
 
-            // X button দিয়ে Admin form বন্ধ করলে app বন্ধ হবে
+            // Main form-এর X button চাপলে application বন্ধ হবে
             Close();
         }
 

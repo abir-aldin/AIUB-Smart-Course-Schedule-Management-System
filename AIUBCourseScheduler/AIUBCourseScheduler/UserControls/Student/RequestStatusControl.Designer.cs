@@ -55,7 +55,6 @@
             ColSubmittedDate = new DataGridViewTextBoxColumn();
             ColStatus = new DataGridViewTextBoxColumn();
             colAdminComment = new DataGridViewTextBoxColumn();
-            colAction = new DataGridViewButtonColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
@@ -104,9 +103,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(27, 31);
+            pictureBox2.Location = new Point(30, 31);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(72, 58);
+            pictureBox2.Size = new Size(69, 58);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -158,9 +157,9 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(29, 26);
+            pictureBox3.Location = new Point(38, 26);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(81, 60);
+            pictureBox3.Size = new Size(72, 60);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -245,9 +244,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(20, 26);
+            pictureBox1.Location = new Point(33, 26);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(82, 57);
+            pictureBox1.Size = new Size(69, 57);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -279,12 +278,12 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colRequestID, colSchedule, ColSubmittedDate, ColStatus, colAdminComment, colAction });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colRequestID, colSchedule, ColSubmittedDate, ColStatus, colAdminComment });
             dataGridView1.Location = new Point(12, 222);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(939, 424);
+            dataGridView1.Size = new Size(940, 424);
             dataGridView1.TabIndex = 14;
             // 
             // colRequestID
@@ -292,42 +291,35 @@
             colRequestID.HeaderText = "Request ID";
             colRequestID.MinimumWidth = 6;
             colRequestID.Name = "colRequestID";
-            colRequestID.Width = 156;
+            colRequestID.Width = 188;
             // 
             // colSchedule
             // 
             colSchedule.HeaderText = "Schedule";
             colSchedule.MinimumWidth = 6;
             colSchedule.Name = "colSchedule";
-            colSchedule.Width = 156;
+            colSchedule.Width = 188;
             // 
             // ColSubmittedDate
             // 
             ColSubmittedDate.HeaderText = "Submitted Date";
             ColSubmittedDate.MinimumWidth = 6;
             ColSubmittedDate.Name = "ColSubmittedDate";
-            ColSubmittedDate.Width = 156;
+            ColSubmittedDate.Width = 188;
             // 
             // ColStatus
             // 
             ColStatus.HeaderText = "Status";
             ColStatus.MinimumWidth = 6;
             ColStatus.Name = "ColStatus";
-            ColStatus.Width = 156;
+            ColStatus.Width = 188;
             // 
             // colAdminComment
             // 
             colAdminComment.HeaderText = "Admin Comment";
             colAdminComment.MinimumWidth = 6;
             colAdminComment.Name = "colAdminComment";
-            colAdminComment.Width = 156;
-            // 
-            // colAction
-            // 
-            colAction.HeaderText = "Action";
-            colAction.MinimumWidth = 6;
-            colAction.Name = "colAction";
-            colAction.Width = 156;
+            colAdminComment.Width = 188;
             // 
             // RequestStatusControl
             // 
@@ -380,14 +372,13 @@
         private Panel panel1;
         private Panel panel6;
         private DataGridView dataGridView1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn colRequestID;
         private DataGridViewTextBoxColumn colSchedule;
         private DataGridViewTextBoxColumn ColSubmittedDate;
         private DataGridViewTextBoxColumn ColStatus;
         private DataGridViewTextBoxColumn colAdminComment;
-        private DataGridViewButtonColumn colAction;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox1;
     }
 }

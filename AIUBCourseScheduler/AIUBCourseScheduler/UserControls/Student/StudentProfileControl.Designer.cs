@@ -343,6 +343,7 @@
             button3.TabIndex = 14;
             button3.Text = "Cancel";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // panel7
             // 

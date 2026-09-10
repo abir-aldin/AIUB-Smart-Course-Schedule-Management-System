@@ -13,6 +13,7 @@ namespace AIUBCourseScheduler.UserControls.Student
         {
             InitializeComponent();
 
+
             LoadProfile();
 
             DisableEditing();
@@ -177,12 +178,6 @@ namespace AIUBCourseScheduler.UserControls.Student
 
 
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            DisableEditing();
-
-            LoadProfile();
-        }
 
 
 
@@ -248,5 +243,10 @@ namespace AIUBCourseScheduler.UserControls.Student
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DisableEditing();
+            LoadProfile();
+        }
     }
 }
