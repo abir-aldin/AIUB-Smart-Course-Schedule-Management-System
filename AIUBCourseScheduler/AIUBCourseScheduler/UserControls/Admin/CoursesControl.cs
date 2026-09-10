@@ -96,6 +96,14 @@ namespace AIUBCourseScheduler.UserControls.Admin
             dgvCourses.DataSource = null;
             dgvCourses.DataSource = displayedCourses;
 
+            foreach (DataGridViewRow row in dgvCourses.Rows)
+            {
+                if (row.DataBoundItem is Course course)
+                {
+                    row.Tag = course.CourseId;
+                }
+            }
+
             label3.Text =
                 $"Showing {displayedCourses.Count} courses";
 
@@ -123,31 +131,97 @@ namespace AIUBCourseScheduler.UserControls.Admin
             }
         }
 
-        private void dgvCourses_CellContentClick(
-            object sender,
-            DataGridViewCellEventArgs e)
+        private async void dgvCourses_CellContentClick(
+    object sender,
+    DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 ||
-                e.ColumnIndex < 0)
-            {
+            if (e.RowIndex < 0)
                 return;
-            }
+
 
             string columnName =
                 dgvCourses.Columns[e.ColumnIndex].Name;
 
+
+
+            int courseId =
+                Convert.ToInt32(
+                    dgvCourses.Rows[e.RowIndex].Tag
+                );
+
+
+
             if (columnName == "EditColumn")
             {
-                MessageBox.Show(
-                    "Edit function will be added next."
-                );
+
+                using CourseEditorForm form =
+                    new CourseEditorForm(courseId);
+
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    await ReloadCoursesAsync();
+                }
+
             }
+
+
             else if (columnName == "DeleteColumn")
             {
-                MessageBox.Show(
-                    "Delete function will be added next."
-                );
+
+                DialogResult result =
+                    MessageBox.Show(
+                        "Are you sure you want to delete this course?",
+                        "Confirm Delete",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+
+                if (result == DialogResult.Yes)
+                {
+                    DeleteCourse(courseId);
+
+                    await ReloadCoursesAsync();
+                }
+
             }
+        }
+
+        private void DeleteCourse(int courseId)
+        {
+            using SqlConnection connection =
+                DatabaseConnection.GetConnection();
+
+
+            connection.Open();
+
+
+            string query = @"
+        DELETE FROM Courses
+        WHERE CourseId=@CourseId
+    ";
+
+
+            using SqlCommand command =
+                new SqlCommand(query, connection);
+
+
+            command.Parameters.AddWithValue(
+                "@CourseId",
+                courseId
+            );
+
+
+            command.ExecuteNonQuery();
+
+
+            MessageBox.Show(
+                "Course deleted successfully.",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
         private void textBox1_TextChanged(
@@ -183,6 +257,44 @@ namespace AIUBCourseScheduler.UserControls.Admin
         {
             textBox1.Clear();
             textBox1.Focus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using CourseEditorForm form =
+    new CourseEditorForm();
+
+
+            DialogResult result =
+                form.ShowDialog();
+
+
+            if (result == DialogResult.OK)
+            {
+                // Save হওয়ার পরে grid refresh
+
+                _ = ReloadCoursesAsync();
+            }
+        }
+
+        private async Task ReloadCoursesAsync()
+        {
+            try
+            {
+                await LoadCoursesAsync();
+
+                ShowCourses(courses);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(
+                    "Could not reload courses.\n\n" +
+                    ex.Message,
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
     }
 }

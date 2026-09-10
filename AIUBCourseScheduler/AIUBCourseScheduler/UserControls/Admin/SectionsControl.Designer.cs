@@ -71,6 +71,7 @@
             // button1
             // 
             button1.BackColor = SystemColors.HotTrack;
+            button1.Cursor = Cursors.Hand;
             button1.ForeColor = SystemColors.ButtonHighlight;
             button1.Location = new Point(823, 22);
             button1.Name = "button1";
@@ -78,6 +79,7 @@
             button1.TabIndex = 2;
             button1.Text = "+  Add Section\r\n";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel1
             // 
