@@ -1,10 +1,11 @@
 ﻿using AIUBCourseScheduler.DataAccess;
+using AIUBCourseScheduler.Forms;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace AIUBCourseScheduler.UserControls.Admin
 {
@@ -45,7 +46,7 @@ namespace AIUBCourseScheduler.UserControls.Admin
             ActionColumn2.Text = "Delete";
             ActionColumn2.UseColumnTextForButtonValue = true;
 
-        
+
         }
 
         private async Task LoadSectionsAsync()
@@ -307,6 +308,24 @@ namespace AIUBCourseScheduler.UserControls.Admin
                 // Refresh শেষ হলে button আবার চালু হবে
                 button2.Enabled = true;
                 button2.Text = "Refresh";
+            }
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            using SectionEditorForm form =
+                new SectionEditorForm();
+
+
+            DialogResult result =
+                form.ShowDialog();
+
+
+            if (result == DialogResult.OK)
+            {
+                await LoadSectionsAsync();
+
+                ShowSections(sections);
             }
         }
     }

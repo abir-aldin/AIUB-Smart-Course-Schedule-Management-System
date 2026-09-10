@@ -221,9 +221,9 @@
             // 
             textBox1.Location = new Point(32, 183);
             textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "e.g.01234";
             textBox1.Size = new Size(372, 27);
             textBox1.TabIndex = 14;
-            textBox1.Text = "e.g.01234";
             // 
             // numericUpDown1
             // 
@@ -237,9 +237,9 @@
             // 
             textBox2.Location = new Point(471, 183);
             textBox2.Name = "textBox2";
+            textBox2.PlaceholderText = "e.g. A or L1-A";
             textBox2.Size = new Size(372, 27);
             textBox2.TabIndex = 17;
-            textBox2.Text = "e.g. A or L1-A";
             // 
             // numericUpDown2
             // 
@@ -251,7 +251,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Segoe UI Semibold", 9.8F, FontStyle.Bold);
+            checkBox1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             checkBox1.ForeColor = Color.DarkGreen;
             checkBox1.Location = new Point(32, 371);
             checkBox1.Name = "checkBox1";
@@ -346,6 +346,7 @@
             comboBox5.Name = "comboBox5";
             comboBox5.Size = new Size(167, 28);
             comboBox5.TabIndex = 22;
+            comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
             // 
             // comboBox6
             // 
@@ -424,9 +425,9 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            button1.Location = new Point(449, 630);
+            button1.Location = new Point(471, 630);
             button1.Name = "button1";
-            button1.Size = new Size(180, 55);
+            button1.Size = new Size(143, 55);
             button1.TabIndex = 23;
             button1.Text = "Cancel";
             button1.UseVisualStyleBackColor = true;
@@ -434,7 +435,7 @@
             // button2
             // 
             button2.BackColor = Color.Blue;
-            button2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = SystemColors.ControlLightLight;
             button2.Location = new Point(665, 630);
             button2.Name = "button2";
@@ -442,6 +443,7 @@
             button2.TabIndex = 24;
             button2.Text = "Save Section";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // label17
             // 
@@ -492,7 +494,7 @@
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.Red;
-            label21.Location = new Point(589, 298);
+            label21.Location = new Point(594, 298);
             label21.Name = "label21";
             label21.Size = new Size(20, 25);
             label21.TabIndex = 29;
@@ -525,7 +527,7 @@
             label24.AutoSize = true;
             label24.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label24.ForeColor = Color.Red;
-            label24.Location = new Point(94, 155);
+            label24.Location = new Point(101, 155);
             label24.Name = "label24";
             label24.Size = new Size(20, 25);
             label24.TabIndex = 32;
@@ -540,7 +542,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(882, 703);
+            ClientSize = new Size(883, 703);
             Controls.Add(label24);
             Controls.Add(label23);
             Controls.Add(label22);

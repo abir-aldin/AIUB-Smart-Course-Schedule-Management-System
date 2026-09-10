@@ -87,9 +87,7 @@
             button1.TabIndex = 2;
             button1.Text = "+ Add Course";
             button1.UseVisualStyleBackColor = false;
-
-            textBox1.TextChanged += textBox1_TextChanged;
-            button2.Click += button2_Click;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
@@ -99,6 +97,7 @@
             textBox1.PlaceholderText = "Search course code or name";
             textBox1.Size = new Size(230, 32);
             textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // panel1
             // 
@@ -118,6 +117,7 @@
             button2.TabIndex = 4;
             button2.Text = "Clear Filters";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // dgvCourses
             // 
