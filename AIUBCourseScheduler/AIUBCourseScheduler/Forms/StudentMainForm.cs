@@ -1,4 +1,5 @@
-﻿using AIUBCourseScheduler.UserControls.Student;
+﻿using AIUBCourseScheduler.Services;
+using AIUBCourseScheduler.UserControls.Student;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,14 @@ namespace AIUBCourseScheduler.Forms
 {
     public partial class StudentMainForm : Form
     {
+
+        public bool IsLoggingOut { get; private set; }
         public StudentMainForm()
         {
             InitializeComponent();
+
+            FormClosing -= StudentMainForm_FormClosing;
+            FormClosing += StudentMainForm_FormClosing;
         }
 
         private void StudentMainForm_Load(object sender, EventArgs e)
@@ -88,8 +94,53 @@ namespace AIUBCourseScheduler.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
+            DialogResult result =
+    MessageBox.Show(
+        "Are you sure you want to log out?",
+        "Confirm Logout",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question
+    );
+
+            if (result == DialogResult.Yes)
+            {
+                IsLoggingOut = true;
+
+                UserSession.Clear();
+
+                Close();
+            }
 
         }
+
+        private void StudentMainForm_FormClosing(
+    object? sender,
+    FormClosingEventArgs e)
+        {
+            // Logout button থেকে form বন্ধ হলে confirmation লাগবে না
+            if (IsLoggingOut)
+            {
+                return;
+            }
+
+            // শুধু X button দিয়ে বন্ধ করার সময় confirmation
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result =
+                    MessageBox.Show(
+                        "Are you sure you want to exit the application?",
+                        "Confirm Exit",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {

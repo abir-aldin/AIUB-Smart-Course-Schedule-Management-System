@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace AIUBCourseScheduler.UserControls.Admin
 {
@@ -20,6 +21,21 @@ namespace AIUBCourseScheduler.UserControls.Admin
         public ScheduleRequestsControl()
         {
             InitializeComponent();
+
+            dgvRequests.RowsDefaultCellStyle.BackColor =
+                Color.White;
+
+            dgvRequests.RowsDefaultCellStyle.ForeColor =
+                Color.Black;
+
+            dgvRequests.RowsDefaultCellStyle.SelectionBackColor =
+                Color.LightBlue;
+
+            dgvRequests.RowsDefaultCellStyle.SelectionForeColor =
+                Color.Black;
+
+            dgvRequests.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.White;
         }
 
 
@@ -99,6 +115,9 @@ namespace AIUBCourseScheduler.UserControls.Admin
                 requests.Count(x =>
                 x.RequestStatus == "Rejected")
                 .ToString();
+
+            dgvRequests.ClearSelection();
+            dgvRequests.CurrentCell = null;
         }
 
 

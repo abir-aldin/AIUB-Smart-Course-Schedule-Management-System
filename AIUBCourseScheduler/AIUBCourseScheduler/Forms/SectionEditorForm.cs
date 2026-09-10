@@ -3,154 +3,101 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 
 namespace AIUBCourseScheduler.Forms
 {
     public partial class SectionEditorForm : Form
     {
-
         public SectionEditorForm()
         {
             InitializeComponent();
         }
-
-
 
         private void SectionEditorForm_Load(
             object sender,
             EventArgs e)
         {
             LoadCourses();
-
             LoadTerms();
-
 
             comboBox3.Items.Clear();
             comboBox3.Items.Add("Theory");
             comboBox3.Items.Add("Lab");
 
-
             comboBox4.Items.Clear();
             comboBox4.Items.Add("Open");
             comboBox4.Items.Add("Closed");
 
-
             checkBox1.Checked = true;
         }
-
-
-
-
 
         private void LoadCourses()
         {
             using SqlConnection connection =
                 DatabaseConnection.GetConnection();
 
-
             connection.Open();
 
-
             string query = @"
-                SELECT 
+                SELECT
                     CourseId,
                     CourseTitle
-                FROM Courses
+                FROM dbo.Courses
                 WHERE IsActive = 1
-                ORDER BY CourseTitle
+                ORDER BY CourseTitle;
             ";
-
 
             using SqlCommand command =
                 new SqlCommand(query, connection);
 
-
-
             DataTable table =
                 new DataTable();
-
 
             table.Load(
                 command.ExecuteReader()
             );
 
-
             comboBox1.DataSource = table;
-
-            comboBox1.DisplayMember =
-                "CourseTitle";
-
-            comboBox1.ValueMember =
-                "CourseId";
+            comboBox1.DisplayMember = "CourseTitle";
+            comboBox1.ValueMember = "CourseId";
         }
-
-
-
-
-
-
 
         private void LoadTerms()
         {
             using SqlConnection connection =
                 DatabaseConnection.GetConnection();
 
-
             connection.Open();
-
 
             string query = @"
                 SELECT
                     TermId,
                     TermName
-                FROM AcademicTerms
+                FROM dbo.AcademicTerms
                 WHERE IsActive = 1
-                ORDER BY TermId DESC
+                ORDER BY TermId DESC;
             ";
-
 
             using SqlCommand command =
                 new SqlCommand(query, connection);
 
-
-
             DataTable table =
                 new DataTable();
-
 
             table.Load(
                 command.ExecuteReader()
             );
 
-
-            comboBox2.DataSource =
-                table;
-
-
-            comboBox2.DisplayMember =
-                "TermName";
-
-
-            comboBox2.ValueMember =
-                "TermId";
+            comboBox2.DataSource = table;
+            comboBox2.DisplayMember = "TermName";
+            comboBox2.ValueMember = "TermId";
         }
-
-
-
-
-
-
-
 
         private bool ValidateSection()
         {
             errorProvider1.Clear();
 
-
             bool valid = true;
-
-
 
             if (comboBox1.SelectedIndex == -1)
             {
@@ -162,9 +109,6 @@ namespace AIUBCourseScheduler.Forms
                 valid = false;
             }
 
-
-
-
             if (comboBox2.SelectedIndex == -1)
             {
                 errorProvider1.SetError(
@@ -174,10 +118,6 @@ namespace AIUBCourseScheduler.Forms
 
                 valid = false;
             }
-
-
-
-
 
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
@@ -189,10 +129,6 @@ namespace AIUBCourseScheduler.Forms
                 valid = false;
             }
 
-
-
-
-
             if (string.IsNullOrWhiteSpace(textBox2.Text))
             {
                 errorProvider1.SetError(
@@ -202,10 +138,6 @@ namespace AIUBCourseScheduler.Forms
 
                 valid = false;
             }
-
-
-
-
 
             if (comboBox3.SelectedIndex == -1)
             {
@@ -217,9 +149,6 @@ namespace AIUBCourseScheduler.Forms
                 valid = false;
             }
 
-
-
-
             if (comboBox4.SelectedIndex == -1)
             {
                 errorProvider1.SetError(
@@ -229,9 +158,6 @@ namespace AIUBCourseScheduler.Forms
 
                 valid = false;
             }
-
-
-
 
             if (numericUpDown1.Value <= 0)
             {
@@ -243,9 +169,6 @@ namespace AIUBCourseScheduler.Forms
                 valid = false;
             }
 
-
-
-
             if (comboBox5.SelectedIndex == -1)
             {
                 errorProvider1.SetError(
@@ -255,8 +178,6 @@ namespace AIUBCourseScheduler.Forms
 
                 valid = false;
             }
-
-
 
             if (comboBox6.SelectedIndex == -1)
             {
@@ -268,8 +189,6 @@ namespace AIUBCourseScheduler.Forms
                 valid = false;
             }
 
-
-
             if (comboBox7.SelectedIndex == -1)
             {
                 errorProvider1.SetError(
@@ -279,8 +198,6 @@ namespace AIUBCourseScheduler.Forms
 
                 valid = false;
             }
-
-
 
             if (string.IsNullOrWhiteSpace(textBox3.Text))
             {
@@ -292,24 +209,13 @@ namespace AIUBCourseScheduler.Forms
                 valid = false;
             }
 
-
-
             return valid;
         }
 
-
-
-
-
-
-
-
-
         private void button2_Click(
-    object sender,
-    EventArgs e)
+            object sender,
+            EventArgs e)
         {
-
             if (!ValidateSection())
             {
                 MessageBox.Show(
@@ -322,282 +228,274 @@ namespace AIUBCourseScheduler.Forms
                 return;
             }
 
+            int selectedTermId =
+                Convert.ToInt32(
+                    comboBox2.SelectedValue
+                );
 
+            int selectedCourseId =
+                Convert.ToInt32(
+                    comboBox1.SelectedValue
+                );
+
+            string classId =
+                textBox1.Text.Trim();
+
+            string sectionName =
+                textBox2.Text.Trim();
 
             using SqlConnection connection =
                 DatabaseConnection.GetConnection();
 
-
             connection.Open();
-
-
 
             try
             {
-
-                // Duplicate Check
+                /*
+                 * একই term-এ একই Class ID অথবা
+                 * একই course-এর একই section পুনরায়
+                 * add করা যাবে না।
+                 */
                 string checkQuery = @"
-                                    SELECT COUNT(*)
-                                    FROM CourseOfferings
-                                    WHERE TermId = @TermId
-                                    AND CourseId = @CourseId
-                                    AND Section = @Section
-                                ";
+                    SELECT COUNT(*)
+                    FROM dbo.CourseOfferings
+                    WHERE TermId = @TermId
+                    AND
+                    (
+                        UPPER(LTRIM(RTRIM(SourceClassId))) =
+                            UPPER(@SourceClassId)
 
+                        OR
 
+                        (
+                            CourseId = @CourseId
+                            AND
+                            UPPER(LTRIM(RTRIM(Section))) =
+                                UPPER(@Section)
+                        )
+                    );
+                ";
 
-                using (SqlCommand checkCommand =
+                using SqlCommand checkCommand =
                     new SqlCommand(
                         checkQuery,
-                        connection))
+                        connection
+                    );
+
+                checkCommand.Parameters.Add(
+                    "@TermId",
+                    SqlDbType.Int
+                ).Value = selectedTermId;
+
+                checkCommand.Parameters.Add(
+                    "@CourseId",
+                    SqlDbType.Int
+                ).Value = selectedCourseId;
+
+                checkCommand.Parameters.Add(
+                    "@SourceClassId",
+                    SqlDbType.NVarChar,
+                    50
+                ).Value = classId;
+
+                checkCommand.Parameters.Add(
+                    "@Section",
+                    SqlDbType.NVarChar,
+                    50
+                ).Value = sectionName;
+
+                int existingCount =
+                    Convert.ToInt32(
+                        checkCommand.ExecuteScalar()
+                    );
+
+                if (existingCount > 0)
                 {
-
-
-                    checkCommand.Parameters.AddWithValue(
-                        "@TermId",
-                        comboBox2.SelectedValue
+                    MessageBox.Show(
+                        "The Class ID already exists, or this " +
+                        "course already has the same section in " +
+                        "the selected academic term.",
+                        "Duplicate Section",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
                     );
 
-
-                    checkCommand.Parameters.AddWithValue(
-    "@CourseId",
-    comboBox1.SelectedValue
-);
-
-
-                    checkCommand.Parameters.AddWithValue(
-                        "@Section",
-                        textBox2.Text.Trim()
-                    );
-
-
-
-                    int existingCount =
-                        Convert.ToInt32(
-                            checkCommand.ExecuteScalar()
-                        );
-
-
-
-                    if (existingCount > 0)
-                    {
-                        MessageBox.Show(
-                            "This Class ID already exists for the selected academic term.\nPlease use another Class ID.",
-                            "Duplicate Section",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning
-                        );
-
-                        return;
-                    }
-
+                    return;
                 }
-
-
-
-
 
                 SqlTransaction transaction =
                     connection.BeginTransaction();
 
-
-
                 try
                 {
-
                     int offeringId;
 
-
-
                     string offeringQuery = @"
+                        INSERT INTO dbo.CourseOfferings
+                        (
+                            TermId,
+                            CourseId,
+                            SourceClassId,
+                            Section,
+                            OfferingStatus,
+                            Capacity,
+                            EnrolledCount,
+                            IsActive,
+                            OfferingType
+                        )
+                        VALUES
+                        (
+                            @TermId,
+                            @CourseId,
+                            @SourceClassId,
+                            @Section,
+                            @OfferingStatus,
+                            @Capacity,
+                            @EnrolledCount,
+                            @IsActive,
+                            @OfferingType
+                        );
 
-                INSERT INTO CourseOfferings
-                (
-                    TermId,
-                    CourseId,
-                    SourceClassId,
-                    Section,
-                    OfferingStatus,
-                    Capacity,
-                    EnrolledCount,
-                    IsActive,
-                    OfferingType
-                )
+                        SELECT SCOPE_IDENTITY();
+                    ";
 
-                VALUES
-                (
-                    @TermId,
-                    @CourseId,
-                    @SourceClassId,
-                    @Section,
-                    @OfferingStatus,
-                    @Capacity,
-                    @EnrolledCount,
-                    @IsActive,
-                    @OfferingType
-                );
-
-
-                SELECT SCOPE_IDENTITY();
-
-            ";
-
-
-
-
-                    using (SqlCommand command =
-                        new SqlCommand(
-                            offeringQuery,
-                            connection,
-                            transaction))
+                    using (
+                        SqlCommand command =
+                            new SqlCommand(
+                                offeringQuery,
+                                connection,
+                                transaction
+                            )
+                    )
                     {
-
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@TermId",
-                            comboBox2.SelectedValue
-                        );
+                            SqlDbType.Int
+                        ).Value = selectedTermId;
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@CourseId",
-                            comboBox1.SelectedValue
-                        );
+                            SqlDbType.Int
+                        ).Value = selectedCourseId;
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@SourceClassId",
-                            textBox1.Text.Trim()
-                        );
+                            SqlDbType.NVarChar,
+                            50
+                        ).Value = classId;
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@Section",
-                            textBox2.Text.Trim()
-                        );
+                            SqlDbType.NVarChar,
+                            50
+                        ).Value = sectionName;
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@OfferingStatus",
-                            comboBox4.Text
-                        );
+                            SqlDbType.NVarChar,
+                            30
+                        ).Value = comboBox4.Text.Trim();
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@Capacity",
-                            numericUpDown1.Value
-                        );
+                            SqlDbType.Int
+                        ).Value =
+                            Convert.ToInt32(
+                                numericUpDown1.Value
+                            );
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@EnrolledCount",
-                            numericUpDown2.Value
-                        );
+                            SqlDbType.Int
+                        ).Value =
+                            Convert.ToInt32(
+                                numericUpDown2.Value
+                            );
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@IsActive",
-                            checkBox1.Checked
-                        );
+                            SqlDbType.Bit
+                        ).Value = checkBox1.Checked;
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@OfferingType",
-                            comboBox3.Text
-                        );
-
-
+                            SqlDbType.NVarChar,
+                            50
+                        ).Value = comboBox3.Text.Trim();
 
                         offeringId =
                             Convert.ToInt32(
                                 command.ExecuteScalar()
                             );
-
                     }
-
-
-
-
-
-
 
                     string meetingQuery = @"
+                        INSERT INTO dbo.ClassMeetings
+                        (
+                            OfferingId,
+                            MeetingDay,
+                            StartTime,
+                            EndTime,
+                            Room
+                        )
+                        VALUES
+                        (
+                            @OfferingId,
+                            @MeetingDay,
+                            @StartTime,
+                            @EndTime,
+                            @Room
+                        );
+                    ";
 
-                INSERT INTO ClassMeetings
-                (
-                    OfferingId,
-                    MeetingDay,
-                    StartTime,
-                    EndTime,
-                    Room
-                )
-
-                VALUES
-                (
-                    @OfferingId,
-                    @MeetingDay,
-                    @StartTime,
-                    @EndTime,
-                    @Room
-                )
-
-            ";
-
-
-
-
-
-                    using (SqlCommand command =
-                        new SqlCommand(
-                            meetingQuery,
-                            connection,
-                            transaction))
+                    using (
+                        SqlCommand command =
+                            new SqlCommand(
+                                meetingQuery,
+                                connection,
+                                transaction
+                            )
+                    )
                     {
-
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@OfferingId",
-                            offeringId
-                        );
+                            SqlDbType.Int
+                        ).Value = offeringId;
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@MeetingDay",
-                            comboBox5.Text.Trim()
-                        );
+                            SqlDbType.NVarChar,
+                            20
+                        ).Value =
+                            comboBox5.Text.Trim();
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@StartTime",
+                            SqlDbType.Time
+                        ).Value =
                             DateTime.Parse(
                                 comboBox6.Text
-                            ).TimeOfDay
-                        );
+                            ).TimeOfDay;
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@EndTime",
+                            SqlDbType.Time
+                        ).Value =
                             DateTime.Parse(
                                 comboBox7.Text
-                            ).TimeOfDay
-                        );
+                            ).TimeOfDay;
 
-
-                        command.Parameters.AddWithValue(
+                        command.Parameters.Add(
                             "@Room",
-                            textBox3.Text.Trim()
-                        );
-
+                            SqlDbType.NVarChar,
+                            100
+                        ).Value =
+                            textBox3.Text.Trim();
 
                         command.ExecuteNonQuery();
-
                     }
 
-
-
                     transaction.Commit();
-
-
 
                     MessageBox.Show(
                         "Section added successfully!",
@@ -606,28 +504,19 @@ namespace AIUBCourseScheduler.Forms
                         MessageBoxIcon.Information
                     );
 
-
                     DialogResult =
                         DialogResult.OK;
 
-
                     Close();
-
                 }
-
                 catch
                 {
                     transaction.Rollback();
-
                     throw;
                 }
-
             }
-
-
             catch (Exception ex)
             {
-
                 MessageBox.Show(
                     "Section could not be saved.\n\n" +
                     ex.Message,
@@ -635,16 +524,8 @@ namespace AIUBCourseScheduler.Forms
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
-
             }
-
         }
-
-
-
-
-
-
 
         private void button1_Click(
             object sender,
@@ -656,17 +537,12 @@ namespace AIUBCourseScheduler.Forms
             Close();
         }
 
-
-
-
-
         private void comboBox1_SelectedIndexChanged(
             object sender,
             EventArgs e)
         {
 
         }
-
 
         private void numericUpDown1_ValueChanged(
             object sender,
@@ -675,14 +551,12 @@ namespace AIUBCourseScheduler.Forms
 
         }
 
-
         private void comboBox5_SelectedIndexChanged(
             object sender,
             EventArgs e)
         {
 
         }
-
 
         private void label4_Click(
             object sender,
@@ -691,13 +565,11 @@ namespace AIUBCourseScheduler.Forms
 
         }
 
-
         private void label6_Click(
             object sender,
             EventArgs e)
         {
 
         }
-
     }
 }

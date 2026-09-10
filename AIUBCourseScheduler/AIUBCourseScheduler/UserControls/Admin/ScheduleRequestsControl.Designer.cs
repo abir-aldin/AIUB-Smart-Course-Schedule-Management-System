@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScheduleRequestsControl));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
             label5 = new Label();
@@ -319,9 +321,19 @@
             // dgvRequests
             // 
             dgvRequests.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dgvRequests.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvRequests.BackgroundColor = SystemColors.ButtonFace;
             dgvRequests.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRequests.Columns.AddRange(new DataGridViewColumn[] { colRequestId, colStudent, colSubmittedDate, colStatus, colActions });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvRequests.DefaultCellStyle = dataGridViewCellStyle2;
             dgvRequests.Location = new Point(88, 251);
             dgvRequests.Name = "dgvRequests";
             dgvRequests.ReadOnly = true;
