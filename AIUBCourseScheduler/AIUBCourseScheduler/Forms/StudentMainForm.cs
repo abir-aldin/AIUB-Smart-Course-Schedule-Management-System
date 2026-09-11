@@ -24,24 +24,14 @@ namespace AIUBCourseScheduler.Forms
 
         private void StudentMainForm_Load(object sender, EventArgs e)
         {
-
+            button1.PerformClick();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            RequestStatusControl requestStatusControl = new RequestStatusControl();
-
-            requestStatusControl.TopLevel = false;
-            requestStatusControl.FormBorderStyle = FormBorderStyle.None;
-            requestStatusControl.Dock = DockStyle.Fill;
-            requestStatusControl.ForeColor = Color.Black;
-            panel3.Controls.Clear();
-            panel3.Controls.Add(requestStatusControl);
-            requestStatusControl.Show();
-        }
+      
 
         private void button2_Click(object sender, EventArgs e)
         {
+            SetActiveButton(button2);
             SelectCoursesControl selectCoursesControl = new SelectCoursesControl();
 
             selectCoursesControl.TopLevel = false;
@@ -55,6 +45,7 @@ namespace AIUBCourseScheduler.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
+            SetActiveButton(button4);
             MySchedulesControl myScheduleControl = new MySchedulesControl();
 
             myScheduleControl.TopLevel = false;
@@ -68,6 +59,7 @@ namespace AIUBCourseScheduler.Forms
 
         private void button6_Click(object sender, EventArgs e)
         {
+            SetActiveButton(button6);
             StudentProfileControl studentProfileControl = new StudentProfileControl();
 
             studentProfileControl.TopLevel = false;
@@ -81,6 +73,7 @@ namespace AIUBCourseScheduler.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
+            SetActiveButton(button3);
             GenerateScheduleControl generateScheduleControl = new GenerateScheduleControl();
 
             generateScheduleControl.TopLevel = false;
@@ -94,6 +87,7 @@ namespace AIUBCourseScheduler.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
+            SetActiveButton(button7);
             DialogResult result =
     MessageBox.Show(
         "Are you sure you want to log out?",
@@ -145,6 +139,39 @@ namespace AIUBCourseScheduler.Forms
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SetActiveButton(button1);
+            StudentDashboardControl studentDashboardControl = new StudentDashboardControl();
+
+            studentDashboardControl.TopLevel = false;
+            studentDashboardControl.FormBorderStyle = FormBorderStyle.None;
+            studentDashboardControl.Dock = DockStyle.Fill;
+            studentDashboardControl.ForeColor = Color.Black;
+            panel3.Controls.Clear();
+            panel3.Controls.Add(studentDashboardControl);
+            studentDashboardControl.Show();
+        }
+
+        private void SetActiveButton(Button selectedButton)
+        {
+            foreach (Control control in panel1.Controls)
+            {
+                if (control is Button button)
+                {
+                    // সব sidebar button normal হবে
+                    button.BackColor = SystemColors.HotTrack;
+                    button.ForeColor = Color.White;
+                }
+            }
+
+            // বর্তমানে selected button highlighted হবে
+            selectedButton.BackColor =
+                Color.FromArgb(0, 51, 102);
+
+            selectedButton.ForeColor = Color.White;
         }
     }
 }

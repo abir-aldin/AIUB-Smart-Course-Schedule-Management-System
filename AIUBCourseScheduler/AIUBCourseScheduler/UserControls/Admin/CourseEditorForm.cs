@@ -281,6 +281,15 @@ namespace AIUBCourseScheduler.UserControls.Admin
 
 
 
+        private void button1_Click(
+            object sender,
+            EventArgs e)
+        {
+            DialogResult =
+                DialogResult.Cancel;
+
+            Close();
+        }
 
 
 
@@ -306,14 +315,6 @@ namespace AIUBCourseScheduler.UserControls.Admin
             EventArgs e)
         {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DialogResult =
-    DialogResult.Cancel;
-
-            Close();
         }
     }
 }
