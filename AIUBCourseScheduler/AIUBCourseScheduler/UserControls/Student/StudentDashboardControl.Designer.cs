@@ -38,21 +38,21 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             label9 = new Label();
             label4 = new Label();
             panel2 = new Panel();
+            pictureBox2 = new PictureBox();
             label10 = new Label();
             label5 = new Label();
             panel3 = new Panel();
+            pictureBox3 = new PictureBox();
             label13 = new Label();
             label6 = new Label();
             panel6 = new Panel();
+            pictureBox4 = new PictureBox();
             label14 = new Label();
             label8 = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             dataGridView1 = new DataGridView();
             scheduleColumn = new DataGridViewTextBoxColumn();
@@ -61,12 +61,12 @@
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -158,6 +158,16 @@
             panel1.Size = new Size(216, 125);
             panel1.TabIndex = 9;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(16, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(108, 92);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -189,6 +199,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(217, 125);
             panel2.TabIndex = 10;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(12, 10);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(101, 92);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 3;
+            pictureBox2.TabStop = false;
             // 
             // label10
             // 
@@ -223,6 +243,16 @@
             panel3.Size = new Size(222, 125);
             panel3.TabIndex = 11;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(19, 10);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(106, 99);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 3;
+            pictureBox3.TabStop = false;
+            // 
             // label13
             // 
             label13.AutoSize = true;
@@ -255,6 +285,16 @@
             panel6.Size = new Size(215, 125);
             panel6.TabIndex = 12;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(3, 10);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(105, 99);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 3;
+            pictureBox4.TabStop = false;
+            // 
             // label14
             // 
             label14.AutoSize = true;
@@ -276,52 +316,12 @@
             label8.TabIndex = 1;
             label8.Text = "Approved \r\nSchedules\r\n\r\n";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(16, 10);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(108, 92);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(12, 10);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(101, 92);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(19, 10);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(106, 99);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 3;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(3, 10);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(105, 99);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 3;
-            pictureBox4.TabStop = false;
-            // 
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(5, 471);
+            pictureBox5.Location = new Point(5, 435);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(951, 254);
+            pictureBox5.Size = new Size(946, 263);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 14;
             pictureBox5.TabStop = false;
@@ -339,11 +339,11 @@
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { scheduleColumn, CreatedDateColumn, StatusColumn });
-            dataGridView1.Location = new Point(15, 212);
+            dataGridView1.Location = new Point(12, 236);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(925, 253);
+            dataGridView1.Size = new Size(925, 175);
             dataGridView1.TabIndex = 15;
             // 
             // scheduleColumn
@@ -391,15 +391,15 @@
             panel5.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

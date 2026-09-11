@@ -110,7 +110,7 @@ namespace AIUBCourseScheduler.Forms
             adminProfileControl.Show();
         }
 
-        private void SetActiveButton(Button selectedButton)
+        public void SetActiveButton(Button selectedButton)
         {
             foreach (Control control in panel1.Controls)
             {

@@ -46,7 +46,11 @@ namespace AIUBCourseScheduler.UserControls.Admin
             ActionColumn2.Text = "Delete";
             ActionColumn2.UseColumnTextForButtonValue = true;
 
+            dataGridView1.CellContentClick -=
+                dataGridView1_CellContentClick;
 
+            dataGridView1.CellContentClick +=
+                dataGridView1_CellContentClick;
         }
 
         private async Task LoadSectionsAsync()
@@ -326,6 +330,231 @@ namespace AIUBCourseScheduler.UserControls.Admin
                 await LoadSectionsAsync();
 
                 ShowSections(sections);
+            }
+        }
+
+        private async void dataGridView1_CellContentClick(
+            object sender,
+            DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            CourseSection? selectedSection =
+                dataGridView1.Rows[e.RowIndex]
+                    .DataBoundItem as CourseSection;
+
+            if (selectedSection == null)
+            {
+                return;
+            }
+
+            string columnName =
+                dataGridView1.Columns[e.ColumnIndex].Name;
+
+            if (columnName == "ActionColumn1")
+            {
+                using SectionEditorForm form =
+                    new SectionEditorForm(
+                        selectedSection.OfferingId
+                    );
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    await ReloadSectionsAsync();
+                }
+            }
+            else if (columnName == "ActionColumn2")
+            {
+                DialogResult result =
+                    MessageBox.Show(
+                        $"Are you sure you want to delete section " +
+                        $"{selectedSection.SectionName} from " +
+                        $"{selectedSection.CourseName}?",
+                        "Confirm Delete",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                bool deleted =
+                    await DeleteSectionAsync(
+                        selectedSection.OfferingId
+                    );
+
+                if (deleted)
+                {
+                    await ReloadSectionsAsync();
+                }
+            }
+        }
+
+        private async Task ReloadSectionsAsync()
+        {
+            textBox1.Clear();
+
+            await LoadSectionsAsync();
+            ShowSections(sections);
+        }
+
+        private static async Task<bool> DeleteSectionAsync(
+            int offeringId)
+        {
+            using SqlConnection connection =
+                DatabaseConnection.GetConnection();
+
+            await connection.OpenAsync();
+
+            string referenceQuery = @"
+    SELECT COUNT(*)
+    FROM dbo.SavedScheduleDetails AS SSD
+
+    INNER JOIN dbo.CourseOfferings AS CO
+        ON CO.CourseId = SSD.CourseId
+        AND UPPER(LTRIM(RTRIM(CO.Section))) =
+            UPPER(LTRIM(RTRIM(SSD.Section)))
+
+    WHERE CO.OfferingId = @OfferingId;";
+
+            using (
+                SqlCommand referenceCommand =
+                    new SqlCommand(
+                        referenceQuery,
+                        connection
+                    )
+            )
+            {
+                referenceCommand.Parameters.AddWithValue(
+                    "@OfferingId",
+                    offeringId
+                );
+
+                int referenceCount =
+                    Convert.ToInt32(
+                        await referenceCommand.ExecuteScalarAsync()
+                    );
+
+                if (referenceCount > 0)
+                {
+                    MessageBox.Show(
+                        "This section is used in one or more saved " +
+                        "schedules, so it cannot be deleted. " +
+                        "You can edit it and make it inactive instead.",
+                        "Section In Use",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    return false;
+                }
+            }
+
+            using SqlTransaction transaction =
+                connection.BeginTransaction();
+
+            try
+            {
+                string deleteMeetingsQuery = @"
+                    DELETE FROM dbo.ClassMeetings
+                    WHERE OfferingId = @OfferingId;";
+
+                using (
+                    SqlCommand meetingCommand =
+                        new SqlCommand(
+                            deleteMeetingsQuery,
+                            connection,
+                            transaction
+                        )
+                )
+                {
+                    meetingCommand.Parameters.AddWithValue(
+                        "@OfferingId",
+                        offeringId
+                    );
+
+                    await meetingCommand.ExecuteNonQueryAsync();
+                }
+
+                string deleteOfferingQuery = @"
+                    DELETE FROM dbo.CourseOfferings
+                    WHERE OfferingId = @OfferingId;";
+
+                int deletedRows;
+
+                using (
+                    SqlCommand offeringCommand =
+                        new SqlCommand(
+                            deleteOfferingQuery,
+                            connection,
+                            transaction
+                        )
+                )
+                {
+                    offeringCommand.Parameters.AddWithValue(
+                        "@OfferingId",
+                        offeringId
+                    );
+
+                    deletedRows =
+                        await offeringCommand.ExecuteNonQueryAsync();
+                }
+
+                transaction.Commit();
+
+                if (deletedRows == 0)
+                {
+                    MessageBox.Show(
+                        "The selected section could not be found.",
+                        "Section Not Found",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    return false;
+                }
+
+                MessageBox.Show(
+                    "Section deleted successfully.",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                transaction.Rollback();
+
+                if (ex.Number == 547)
+                {
+                    MessageBox.Show(
+                        "This section is already used by another " +
+                        "record and cannot be deleted. You can make " +
+                        "the section inactive instead.",
+                        "Section In Use",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    return false;
+                }
+
+                MessageBox.Show(
+                    "Section could not be deleted.\n\n" +
+                    ex.Message,
+                    "Database Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
+                return false;
             }
         }
     }

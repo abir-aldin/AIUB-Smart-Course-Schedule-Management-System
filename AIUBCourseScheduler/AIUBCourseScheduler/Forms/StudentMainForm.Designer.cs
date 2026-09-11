@@ -32,7 +32,6 @@
             panel2 = new Panel();
             button7 = new Button();
             button6 = new Button();
-            button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -49,7 +48,6 @@
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(button6);
-            panel1.Controls.Add(button5);
             panel1.Controls.Add(button4);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
@@ -76,7 +74,7 @@
             button7.FlatStyle = FlatStyle.Flat;
             button7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button7.ForeColor = SystemColors.ButtonHighlight;
-            button7.Location = new Point(0, 594);
+            button7.Location = new Point(-6, 508);
             button7.Name = "button7";
             button7.Size = new Size(220, 78);
             button7.TabIndex = 7;
@@ -91,28 +89,13 @@
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button6.ForeColor = SystemColors.ButtonHighlight;
-            button6.Location = new Point(0, 510);
+            button6.Location = new Point(-6, 424);
             button6.Name = "button6";
             button6.Size = new Size(220, 78);
             button6.TabIndex = 6;
             button6.Text = "PROFILE";
             button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
-            // 
-            // button5
-            // 
-            button5.BackColor = SystemColors.HotTrack;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = SystemColors.ButtonHighlight;
-            button5.Location = new Point(0, 426);
-            button5.Name = "button5";
-            button5.Size = new Size(220, 78);
-            button5.TabIndex = 5;
-            button5.Text = "REQUAST STATUS";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -121,7 +104,7 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = SystemColors.ButtonHighlight;
-            button4.Location = new Point(0, 342);
+            button4.Location = new Point(-3, 351);
             button4.Name = "button4";
             button4.Size = new Size(220, 78);
             button4.TabIndex = 4;
@@ -136,7 +119,7 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(0, 258);
+            button3.Location = new Point(0, 276);
             button3.Name = "button3";
             button3.Size = new Size(220, 78);
             button3.TabIndex = 3;
@@ -151,7 +134,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(-3, 183);
+            button2.Location = new Point(-3, 201);
             button2.Name = "button2";
             button2.Size = new Size(220, 78);
             button2.TabIndex = 2;
@@ -166,12 +149,13 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(0, 99);
+            button1.Location = new Point(-3, 130);
             button1.Name = "button1";
             button1.Size = new Size(220, 78);
             button1.TabIndex = 1;
             button1.Text = "DASHBOARD";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -225,7 +209,6 @@
         private Label label1;
         private Label label2;
         private Button button1;
-        private Button button5;
         private Button button4;
         private Button button3;
         private Button button2;
