@@ -381,6 +381,7 @@
             // 
             comboBox10.Dock = DockStyle.Fill;
             comboBox10.FormattingEnabled = true;
+            comboBox10.Items.AddRange(new object[] { "8:00 AM", "9:40 AM", "11:20 AM", "1:00 PM", "2:40 PM" });
             comboBox10.Location = new Point(176, 93);
             comboBox10.Name = "comboBox10";
             comboBox10.Size = new Size(167, 28);
@@ -390,6 +391,7 @@
             // 
             comboBox11.Dock = DockStyle.Fill;
             comboBox11.FormattingEnabled = true;
+            comboBox11.Items.AddRange(new object[] { "9:30 AM", "11:10 AM", "12:50 PM", "1:30 PM", "4:10 PM" });
             comboBox11.Location = new Point(349, 93);
             comboBox11.Name = "comboBox11";
             comboBox11.Size = new Size(167, 28);

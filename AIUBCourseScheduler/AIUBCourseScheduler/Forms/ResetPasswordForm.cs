@@ -12,7 +12,6 @@ namespace AIUBCourseScheduler.Forms
     {
         private readonly string receiverEmail;
 
-        // Visual Studio Designer-এর জন্য
         public ResetPasswordForm()
             : this("example@gmail.com")
         {

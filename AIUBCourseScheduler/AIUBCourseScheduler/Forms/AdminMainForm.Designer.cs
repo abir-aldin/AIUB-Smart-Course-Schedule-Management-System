@@ -32,6 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMainForm));
             panel1 = new Panel();
             button8 = new Button();
             button4 = new Button();
@@ -44,12 +45,15 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.HotTrack;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(button8);
             panel1.Controls.Add(button4);
             panel1.Controls.Add(button7);
@@ -216,6 +220,16 @@
             panel2.Size = new Size(969, 740);
             panel2.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(79, 93);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            // 
             // AdminMainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -229,6 +243,7 @@
             Text = "AdminMainForm";
             Load += AdminMainForm_Load;
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -247,5 +262,6 @@
         private Button button6;
         private Button button5;
         private Panel panel2;
+        private PictureBox pictureBox1;
     }
 }
