@@ -8,7 +8,7 @@ namespace AIUBCourseScheduler.DataAccess
     internal class DatabaseConnection
     {
         private const string ConnectionString = @"
-                Server = .\SQLEXPRESS;
+                Server = (localdb)\MSSQLLocalDB;
                 Database = AIUBCourseScheduleDB;
                 Integrated Security = True;
                 TrustServerCertificate = True;";
