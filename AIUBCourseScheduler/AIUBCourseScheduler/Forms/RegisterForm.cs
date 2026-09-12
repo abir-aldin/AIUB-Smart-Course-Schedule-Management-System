@@ -38,19 +38,15 @@ namespace AIUBCourseScheduler.Forms
         {
             count++;
 
-            textBox4.UseSystemPasswordChar =
-                count % 2 == 0;
+            textBox4.UseSystemPasswordChar = count % 2 == 0;
         }
 
         // Confirm password show/hide
-        private void button3_Click(
-            object sender,
-            EventArgs e)
+        private void button3_Click( object sender, EventArgs e)
         {
             count2++;
 
-            textBox5.UseSystemPasswordChar =
-                count2 % 2 == 0;
+            textBox5.UseSystemPasswordChar = count2 % 2 == 0;
         }
 
         // Sign In link
@@ -60,24 +56,17 @@ namespace AIUBCourseScheduler.Forms
         }
 
         // Create Account button
-        private async void button1_Click(
-            object sender,
-            EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            string fullName =
-                textBox1.Text.Trim();
+            string fullName = textBox1.Text.Trim();
 
-            string studentId =
-                textBox2.Text.Trim();
+            string studentId = textBox2.Text.Trim();
 
-            string email =
-                textBox3.Text.Trim().ToLowerInvariant();
+            string email = textBox3.Text.Trim().ToLowerInvariant();
 
-            string password =
-                textBox4.Text;
+            string password = textBox4.Text;
 
-            string confirmPassword =
-                textBox5.Text;
+            string confirmPassword = textBox5.Text;
 
             // Empty field validation
             if (string.IsNullOrWhiteSpace(fullName) ||
@@ -138,8 +127,7 @@ namespace AIUBCourseScheduler.Forms
                 return;
             }
 
-            string originalButtonText =
-                button1.Text;
+            string originalButtonText = button1.Text;
 
             try
             {

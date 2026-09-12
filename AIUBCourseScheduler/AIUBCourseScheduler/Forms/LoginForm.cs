@@ -40,14 +40,11 @@ namespace AIUBCourseScheduler.Forms
             textBox2.Leave -= textBox2_Leave;
             textBox2.Leave += textBox2_Leave;
 
-            linkLabel1.LinkClicked -=
-                linkLabel1_LinkClicked;
+            linkLabel1.LinkClicked -= linkLabel1_LinkClicked;
 
-            linkLabel1.LinkClicked +=
-                linkLabel1_LinkClicked;
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
 
-            linkLabel1.LinkColor =
-                Color.RoyalBlue;
+            linkLabel1.LinkColor = Color.RoyalBlue;
 
             if (textBox1.Text == IdentifierPlaceholder)
             {
@@ -78,13 +75,11 @@ namespace AIUBCourseScheduler.Forms
             object sender,
             EventArgs e)
         {
-            string identifier =
-                textBox1.Text.Trim();
+            string identifier = textBox1.Text.Trim();
 
-            string password =
-                textBox2.Text;
+            string password = textBox2.Text;
 
-            if (identifier == IdentifierPlaceholder)
+            if(identifier == IdentifierPlaceholder)
             {
                 identifier = string.Empty;
             }
@@ -94,8 +89,7 @@ namespace AIUBCourseScheduler.Forms
                 password = string.Empty;
             }
 
-            if (string.IsNullOrWhiteSpace(identifier) ||
-                string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(identifier) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show(
                     "Please enter your Email or Student ID and Password.",
@@ -107,8 +101,7 @@ namespace AIUBCourseScheduler.Forms
                 return;
             }
 
-            string originalButtonText =
-                button1.Text;
+            string originalButtonText = button1.Text;
 
             try
             {
@@ -120,7 +113,8 @@ namespace AIUBCourseScheduler.Forms
                 await connection.OpenAsync();
                 
 
-                string query = @"
+                string query = 
+                    @"
                     SELECT TOP (1)
                         UserId,
                         FullName,
@@ -133,8 +127,7 @@ namespace AIUBCourseScheduler.Forms
                     WHERE Email = @Identifier
                        OR StudentId = @Identifier;";
 
-                using SqlCommand command =
-                    new SqlCommand(query, connection);
+                using SqlCommand command = new SqlCommand(query, connection);
 
                 command.Parameters
                     .Add(
@@ -143,8 +136,7 @@ namespace AIUBCourseScheduler.Forms
                         255)
                     .Value = identifier;
 
-                using SqlDataReader reader =
-                    await command.ExecuteReaderAsync();
+                using SqlDataReader reader = await command.ExecuteReaderAsync();
 
                 if (!await reader.ReadAsync())
                 {
@@ -393,11 +385,9 @@ namespace AIUBCourseScheduler.Forms
             {
                 textBox2.UseSystemPasswordChar = false;
 
-                textBox2.Text =
-                    PasswordPlaceholder;
+                textBox2.Text = PasswordPlaceholder;
 
-                textBox2.ForeColor =
-                    Color.Gray;
+                textBox2.ForeColor = Color.Gray;
             }
         }
 

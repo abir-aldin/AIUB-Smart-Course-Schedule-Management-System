@@ -85,7 +85,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             panelMain.Controls.Add(txtSearch);
             panelMain.Location = new Point(20, 80);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(941, 680);
+            panelMain.Size = new Size(941, 645);
             panelMain.TabIndex = 1;
             // 
             // btnContinue
@@ -96,7 +96,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             btnContinue.FlatStyle = FlatStyle.Flat;
             btnContinue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnContinue.ForeColor = Color.White;
-            btnContinue.Location = new Point(658, 622);
+            btnContinue.Location = new Point(658, 591);
             btnContinue.Name = "btnContinue";
             btnContinue.Size = new Size(265, 45);
             btnContinue.TabIndex = 3;
@@ -121,7 +121,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             panelSummary.Controls.Add(lblSummaryTitle);
             panelSummary.Location = new Point(658, 73);
             panelSummary.Name = "panelSummary";
-            panelSummary.Size = new Size(265, 535);
+            panelSummary.Size = new Size(265, 501);
             panelSummary.TabIndex = 2;
             // 
             // lblMaxCreditsValue
@@ -272,7 +272,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             dgvCourses.RowHeadersWidth = 51;
             dgvCourses.RowTemplate.Height = 38;
             dgvCourses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCourses.Size = new Size(625, 535);
+            dgvCourses.Size = new Size(625, 501);
             dgvCourses.TabIndex = 1;
             dgvCourses.CellValueChanged += dgvCourses_CellValueChanged;
             dgvCourses.CurrentCellDirtyStateChanged += dgvCourses_CurrentCellDirtyStateChanged;
@@ -292,7 +292,7 @@ namespace AIUBCourseScheduler.UserControls.Student
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 251);
-            ClientSize = new Size(981, 784);
+            ClientSize = new Size(981, 737);
             Controls.Add(panelMain);
             Controls.Add(lblTitle);
             FormBorderStyle = FormBorderStyle.None;
