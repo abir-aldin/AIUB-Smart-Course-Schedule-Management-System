@@ -79,7 +79,7 @@ namespace AIUBCourseScheduler.Forms
 
             string password = textBox2.Text;
 
-            if(identifier == IdentifierPlaceholder)
+            if (identifier == IdentifierPlaceholder)
             {
                 identifier = string.Empty;
             }
@@ -111,9 +111,9 @@ namespace AIUBCourseScheduler.Forms
                 using SqlConnection connection = DatabaseConnection.GetConnection();
 
                 await connection.OpenAsync();
-                
 
-                string query = 
+
+                string query =
                     @"
                     SELECT TOP (1)
                         UserId,
@@ -155,7 +155,7 @@ namespace AIUBCourseScheduler.Forms
                 string fullName =
                     reader.GetString(1);
 
-                string studentId = reader.IsDBNull(2)? string.Empty : reader.GetString(2);
+                string studentId = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
 
                 string email = reader.GetString(3);
 
@@ -262,7 +262,7 @@ namespace AIUBCourseScheduler.Forms
             }
             finally
             {
-                if(!IsDisposed && Visible)
+                if (!IsDisposed && Visible)
                 {
                     button1.Enabled = true;
                     button1.Text = originalButtonText;
@@ -273,7 +273,7 @@ namespace AIUBCourseScheduler.Forms
         // Password show/hide button
         private void button2_Click(object sender, EventArgs e)
         {
-            if(textBox2.Text == PasswordPlaceholder || string.IsNullOrEmpty(textBox2.Text))
+            if (textBox2.Text == PasswordPlaceholder || string.IsNullOrEmpty(textBox2.Text))
             {
                 return;
             }
@@ -290,7 +290,7 @@ namespace AIUBCourseScheduler.Forms
 
             registerForm.ShowDialog();
 
-            if(!IsDisposed)
+            if (!IsDisposed)
             {
                 Show();
             }
@@ -303,9 +303,7 @@ namespace AIUBCourseScheduler.Forms
             forgotForm.ShowDialog(this);
         }
 
-        private void DestinationForm_FormClosed(
-    object? sender,
-    FormClosedEventArgs e)
+        private void DestinationForm_FormClosed(object? sender, FormClosedEventArgs e)
         {
             UserSession.Clear();
 
@@ -336,7 +334,6 @@ namespace AIUBCourseScheduler.Forms
                 return;
             }
 
-            // Main form-এর X button চাপলে application বন্ধ হবে
             Close();
         }
 

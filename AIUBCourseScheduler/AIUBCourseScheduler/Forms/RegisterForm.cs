@@ -249,8 +249,7 @@ namespace AIUBCourseScheduler.Forms
                 string email,
                 string studentId)
         {
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
             await connection.OpenAsync();
 
@@ -360,8 +359,7 @@ namespace AIUBCourseScheduler.Forms
         {
             try
             {
-                MailAddress emailAddress =
-                    new MailAddress(email);
+                MailAddress emailAddress = new MailAddress(email);
 
                 return emailAddress.Address.Equals(
                     email,
