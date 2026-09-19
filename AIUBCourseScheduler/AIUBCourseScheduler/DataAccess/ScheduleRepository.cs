@@ -6,17 +6,13 @@ namespace AIUBCourseScheduler.DataAccess
     public static class ScheduleRepository
     {
 
-        public static bool SaveGeneratedSchedules(
-            List<GeneratedSchedule> schedules,
-            int studentUserId)
+        public static bool SaveGeneratedSchedules(List<GeneratedSchedule> schedules, int studentUserId)
         {
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
             connection.Open();
 
-            using SqlTransaction transaction =
-                connection.BeginTransaction();
+            using SqlTransaction transaction = connection.BeginTransaction();
 
             try
             {
@@ -24,8 +20,6 @@ namespace AIUBCourseScheduler.DataAccess
                 {
                     string hash = GenerateScheduleHash(schedule);
 
-
-                    // Duplicate check
                     string checkQuery = @"
                         SELECT COUNT(*)
                         FROM SavedSchedules
@@ -34,24 +28,15 @@ namespace AIUBCourseScheduler.DataAccess
                     ";
 
 
-                    using SqlCommand checkCommand =
-                        new SqlCommand(
-                            checkQuery,
-                            connection,
-                            transaction);
+                    using SqlCommand checkCommand = new SqlCommand(checkQuery, connection, transaction);
 
 
-                    checkCommand.Parameters.AddWithValue(
-                        "@StudentUserId",
-                        studentUserId);
+                    checkCommand.Parameters.AddWithValue("@StudentUserId", studentUserId);
 
-                    checkCommand.Parameters.AddWithValue(
-                        "@ScheduleHash",
-                        hash);
+                    checkCommand.Parameters.AddWithValue("@ScheduleHash", hash);
 
 
-                    int exists =
-                        (int)checkCommand.ExecuteScalar();
+                    int exists = (int)checkCommand.ExecuteScalar();
 
 
                     if (exists > 0)
@@ -59,9 +44,6 @@ namespace AIUBCourseScheduler.DataAccess
                         continue;
                     }
 
-
-
-                    // Insert SavedSchedules
 
                     string insertScheduleQuery = @"
                         INSERT INTO SavedSchedules
@@ -82,35 +64,21 @@ namespace AIUBCourseScheduler.DataAccess
                     ";
 
 
-                    using SqlCommand insertScheduleCommand =
-                        new SqlCommand(
-                            insertScheduleQuery,
-                            connection,
-                            transaction);
+                    using SqlCommand insertScheduleCommand = new SqlCommand(insertScheduleQuery, connection, transaction);
 
 
-                    insertScheduleCommand.Parameters.AddWithValue(
-                        "@StudentUserId",
-                        studentUserId);
+                    insertScheduleCommand.Parameters.AddWithValue("@StudentUserId", studentUserId);
 
 
-                    insertScheduleCommand.Parameters.AddWithValue(
-                        "@ScheduleName",
-                        $"Schedule {schedules.IndexOf(schedule) + 1}");
+                    insertScheduleCommand.Parameters.AddWithValue("@ScheduleName", $"Schedule {schedules.IndexOf(schedule) + 1}");
 
 
-                    insertScheduleCommand.Parameters.AddWithValue(
-                        "@ScheduleHash",
-                        hash);
+                    insertScheduleCommand.Parameters.AddWithValue("@ScheduleHash", hash);
 
 
 
-                    int savedScheduleId =
-                        (int)insertScheduleCommand.ExecuteScalar();
+                    int savedScheduleId = (int)insertScheduleCommand.ExecuteScalar();
 
-
-
-                    // Insert details
 
                     foreach (var offering in schedule.Offerings)
                     {
@@ -141,46 +109,28 @@ namespace AIUBCourseScheduler.DataAccess
                             ";
 
 
-                            using SqlCommand detailCommand =
-                                new SqlCommand(
-                                    detailQuery,
-                                    connection,
-                                    transaction);
+                            using SqlCommand detailCommand = new SqlCommand(detailQuery, connection, transaction);
 
 
-                            detailCommand.Parameters.AddWithValue(
-                                "@SavedScheduleId",
-                                savedScheduleId);
+                            detailCommand.Parameters.AddWithValue("@SavedScheduleId", savedScheduleId);
 
 
-                            detailCommand.Parameters.AddWithValue(
-                                "@CourseId",
-                                offering.CourseId);
+                            detailCommand.Parameters.AddWithValue("@CourseId", offering.CourseId);
 
 
-                            detailCommand.Parameters.AddWithValue(
-                                "@Section",
-                                offering.Section);
+                            detailCommand.Parameters.AddWithValue("@Section", offering.Section);
 
 
-                            detailCommand.Parameters.AddWithValue(
-                                    "@Day",
-                                        meeting.MeetingDay);
+                            detailCommand.Parameters.AddWithValue("@Day", meeting.MeetingDay);
 
 
-                            detailCommand.Parameters.AddWithValue(
-                                "@StartTime",
-                                meeting.StartTime);
+                            detailCommand.Parameters.AddWithValue("@StartTime", meeting.StartTime);
 
 
-                            detailCommand.Parameters.AddWithValue(
-                                "@EndTime",
-                                meeting.EndTime);
+                            detailCommand.Parameters.AddWithValue("@EndTime", meeting.EndTime);
 
 
-                            detailCommand.Parameters.AddWithValue(
-                                "@Room",
-                                (object?)meeting.Room ?? DBNull.Value);
+                            detailCommand.Parameters.AddWithValue("@Room", (object?)meeting.Room ?? DBNull.Value);
 
 
                             detailCommand.ExecuteNonQuery();
@@ -205,12 +155,10 @@ namespace AIUBCourseScheduler.DataAccess
         public static List<SavedScheduleDetailViewModel>
     GetScheduleDetails(int savedScheduleId)
         {
-            List<SavedScheduleDetailViewModel> details =
-                new List<SavedScheduleDetailViewModel>();
+            List<SavedScheduleDetailViewModel> details = new List<SavedScheduleDetailViewModel>();
 
 
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
 
             connection.Open();
@@ -239,17 +187,13 @@ namespace AIUBCourseScheduler.DataAccess
     ";
 
 
-            using SqlCommand command =
-                new SqlCommand(query, connection);
+            using SqlCommand command = new SqlCommand(query, connection);
 
 
-            command.Parameters.AddWithValue(
-                "@SavedScheduleId",
-                savedScheduleId);
+            command.Parameters.AddWithValue("@SavedScheduleId", savedScheduleId);
 
 
-            using SqlDataReader reader =
-                command.ExecuteReader();
+            using SqlDataReader reader = command.ExecuteReader();
 
 
             while (reader.Read())
@@ -291,12 +235,10 @@ namespace AIUBCourseScheduler.DataAccess
         public static List<SavedScheduleViewModel>
     GetStudentSavedSchedules(int studentUserId)
         {
-            List<SavedScheduleViewModel> schedules =
-                new List<SavedScheduleViewModel>();
+            List<SavedScheduleViewModel> schedules = new List<SavedScheduleViewModel>();
 
 
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
 
             connection.Open();
@@ -328,19 +270,13 @@ namespace AIUBCourseScheduler.DataAccess
     ";
 
 
-            using SqlCommand command =
-                new SqlCommand(
-                    query,
-                    connection);
+            using SqlCommand command = new SqlCommand(query, connection);
 
 
-            command.Parameters.AddWithValue(
-                "@StudentUserId",
-                studentUserId);
+            command.Parameters.AddWithValue("@StudentUserId", studentUserId);
 
 
-            using SqlDataReader reader =
-                command.ExecuteReader();
+            using SqlDataReader reader = command.ExecuteReader();
 
 
             while (reader.Read())
@@ -372,17 +308,14 @@ namespace AIUBCourseScheduler.DataAccess
 
         public static bool DeleteSavedSchedule(int savedScheduleId)
         {
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
             connection.Open();
 
-            using SqlTransaction transaction =
-                connection.BeginTransaction();
+            using SqlTransaction transaction = connection.BeginTransaction();
 
             try
             {
-                // Check status first
                 string checkQuery = @"
             SELECT Status
             FROM SavedSchedules
@@ -392,8 +325,7 @@ namespace AIUBCourseScheduler.DataAccess
 
                 string status = "";
 
-                using (SqlCommand checkCommand =
-                    new SqlCommand(checkQuery, connection, transaction))
+                using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection, transaction))
                 {
                     checkCommand.Parameters.AddWithValue(
                         "@SavedScheduleId",
@@ -410,46 +342,33 @@ namespace AIUBCourseScheduler.DataAccess
                 }
 
 
-                // Only Draft can be deleted
                 if (status != "Draft")
                 {
                     return false;
                 }
 
-
-
-                // Delete details first
                 string deleteDetailsQuery = @"
             DELETE FROM SavedScheduleDetails
             WHERE SavedScheduleId = @SavedScheduleId
         ";
 
 
-                using (SqlCommand detailCommand =
-                    new SqlCommand(deleteDetailsQuery, connection, transaction))
+                using (SqlCommand detailCommand = new SqlCommand(deleteDetailsQuery, connection, transaction))
                 {
-                    detailCommand.Parameters.AddWithValue(
-                        "@SavedScheduleId",
-                        savedScheduleId);
+                    detailCommand.Parameters.AddWithValue("@SavedScheduleId", savedScheduleId);
 
                     detailCommand.ExecuteNonQuery();
                 }
 
-
-
-                // Delete main schedule
                 string deleteScheduleQuery = @"
             DELETE FROM SavedSchedules
             WHERE SavedScheduleId = @SavedScheduleId
         ";
 
 
-                using (SqlCommand scheduleCommand =
-                    new SqlCommand(deleteScheduleQuery, connection, transaction))
+                using (SqlCommand scheduleCommand = new SqlCommand(deleteScheduleQuery, connection, transaction))
                 {
-                    scheduleCommand.Parameters.AddWithValue(
-                        "@SavedScheduleId",
-                        savedScheduleId);
+                    scheduleCommand.Parameters.AddWithValue("@SavedScheduleId", savedScheduleId);
 
                     scheduleCommand.ExecuteNonQuery();
                 }
@@ -466,21 +385,16 @@ namespace AIUBCourseScheduler.DataAccess
             }
         }
 
-        public static bool SubmitScheduleForApproval(
-    int savedScheduleId,
-    int studentUserId)
+        public static bool SubmitScheduleForApproval(int savedScheduleId, int studentUserId)
         {
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
             connection.Open();
 
-            using SqlTransaction transaction =
-                connection.BeginTransaction();
+            using SqlTransaction transaction = connection.BeginTransaction();
 
             try
             {
-                // Check existing Pending / Approved request
                 string checkQuery = @"
             SELECT COUNT(*)
             FROM ScheduleRequests
@@ -488,19 +402,12 @@ namespace AIUBCourseScheduler.DataAccess
             AND RequestStatus IN ('Pending','Approved')
         ";
 
-                using SqlCommand checkCommand =
-                    new SqlCommand(
-                        checkQuery,
-                        connection,
-                        transaction);
+                using SqlCommand checkCommand = new SqlCommand(checkQuery, connection, transaction);
 
-                checkCommand.Parameters.AddWithValue(
-                    "@StudentUserId",
-                    studentUserId);
+                checkCommand.Parameters.AddWithValue("@StudentUserId", studentUserId);
 
 
-                int existing =
-                    (int)checkCommand.ExecuteScalar();
+                int existing = (int)checkCommand.ExecuteScalar();
 
 
                 if (existing > 0)
@@ -508,9 +415,6 @@ namespace AIUBCourseScheduler.DataAccess
                     return false;
                 }
 
-
-
-                // Get schedule name
                 string scheduleNameQuery = @"
             SELECT ScheduleName
             FROM SavedSchedules
@@ -521,25 +425,12 @@ namespace AIUBCourseScheduler.DataAccess
                 string scheduleName = "";
 
 
-                using (SqlCommand nameCommand =
-                    new SqlCommand(
-                        scheduleNameQuery,
-                        connection,
-                        transaction))
+                using (SqlCommand nameCommand = new SqlCommand(scheduleNameQuery, connection, transaction))
                 {
-                    nameCommand.Parameters.AddWithValue(
-                        "@SavedScheduleId",
-                        savedScheduleId);
+                    nameCommand.Parameters.AddWithValue("@SavedScheduleId", savedScheduleId);
 
-
-                    scheduleName =
-                        nameCommand.ExecuteScalar()
-                        ?.ToString() ?? "";
+                    scheduleName = nameCommand.ExecuteScalar()?.ToString() ?? "";
                 }
-
-
-
-                // Insert request
 
                 string insertQuery = @"
                                         INSERT INTO ScheduleRequests
@@ -558,36 +449,20 @@ namespace AIUBCourseScheduler.DataAccess
                                         )";
 
 
-                using SqlCommand insertCommand =
-                    new SqlCommand(
-                        insertQuery,
-                        connection,
-                        transaction);
+                using SqlCommand insertCommand = new SqlCommand(insertQuery, connection, transaction);
 
 
-                insertCommand.Parameters.AddWithValue(
-                    "@StudentUserId",
-                    studentUserId);
+                insertCommand.Parameters.AddWithValue("@StudentUserId", studentUserId);
 
-                insertCommand.Parameters.AddWithValue(
-                    "@ScheduleName",
-                    scheduleName);
+                insertCommand.Parameters.AddWithValue("@ScheduleName", scheduleName);
 
-                insertCommand.Parameters.AddWithValue(
-                    "@SavedScheduleId",
-                    savedScheduleId);
+                insertCommand.Parameters.AddWithValue("@SavedScheduleId", savedScheduleId);
 
-                insertCommand.Parameters.AddWithValue(
-                                "@TermId",
-                                1
-                            );
+                insertCommand.Parameters.AddWithValue("@TermId", 1);
 
 
                 insertCommand.ExecuteNonQuery();
 
-
-
-                // Update saved schedule status
 
                 string updateQuery = @"
             UPDATE SavedSchedules
@@ -596,16 +471,10 @@ namespace AIUBCourseScheduler.DataAccess
         ";
 
 
-                using SqlCommand updateCommand =
-                    new SqlCommand(
-                        updateQuery,
-                        connection,
-                        transaction);
+                using SqlCommand updateCommand = new SqlCommand(updateQuery, connection, transaction);
 
 
-                updateCommand.Parameters.AddWithValue(
-                    "@SavedScheduleId",
-                    savedScheduleId);
+                updateCommand.Parameters.AddWithValue("@SavedScheduleId", savedScheduleId);
 
 
                 updateCommand.ExecuteNonQuery();
@@ -625,11 +494,9 @@ namespace AIUBCourseScheduler.DataAccess
 
         public static List<ScheduleRequestViewModel> GetAllScheduleRequests()
         {
-            List<ScheduleRequestViewModel> requests =
-                new List<ScheduleRequestViewModel>();
+            List<ScheduleRequestViewModel> requests = new List<ScheduleRequestViewModel>();
 
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
             connection.Open();
 
@@ -653,12 +520,10 @@ namespace AIUBCourseScheduler.DataAccess
     ";
 
 
-            using SqlCommand command =
-                new SqlCommand(query, connection);
+            using SqlCommand command = new SqlCommand(query, connection);
 
 
-            using SqlDataReader reader =
-                command.ExecuteReader();
+            using SqlDataReader reader = command.ExecuteReader();
 
 
             while (reader.Read())
@@ -670,40 +535,28 @@ namespace AIUBCourseScheduler.DataAccess
 
                         StudentUserId = reader.GetInt32(1),
 
-                        StudentName =
-                            reader.GetString(2),
+                        StudentName = reader.GetString(2),
 
-                        SavedScheduleId =
-                            reader.GetInt32(3),
+                        SavedScheduleId = reader.GetInt32(3),
 
-                        ScheduleName =
-                            reader.GetString(4),
+                        ScheduleName = reader.GetString(4),
 
-                        RequestStatus =
-                            reader.GetString(5),
+                        RequestStatus = reader.GetString(5),
 
-                        SubmittedAt =
-                            reader.GetDateTime(6),
+                        SubmittedAt = reader.GetDateTime(6),
 
-                        AdminComment =
-                            reader.IsDBNull(7)
-                            ? ""
-                            : reader.GetString(7)
-                    });
+                        AdminComment = reader.IsDBNull(7)? "": reader.GetString(7) });
             }
 
 
             return requests;
         }
 
-        public static List<ScheduleRequestViewModel> GetStudentScheduleRequests(
-    int studentUserId)
+        public static List<ScheduleRequestViewModel> GetStudentScheduleRequests(int studentUserId)
         {
-            List<ScheduleRequestViewModel> requests =
-                new List<ScheduleRequestViewModel>();
+            List<ScheduleRequestViewModel> requests = new List<ScheduleRequestViewModel>();
 
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
             connection.Open();
 
@@ -730,17 +583,13 @@ namespace AIUBCourseScheduler.DataAccess
     ";
 
 
-            using SqlCommand command =
-                new SqlCommand(query, connection);
+            using SqlCommand command = new SqlCommand(query, connection);
 
 
-            command.Parameters.AddWithValue(
-                "@StudentUserId",
-                studentUserId);
+            command.Parameters.AddWithValue("@StudentUserId", studentUserId);
 
 
-            using SqlDataReader reader =
-                command.ExecuteReader();
+            using SqlDataReader reader = command.ExecuteReader();
 
 
             while (reader.Read())
@@ -752,25 +601,17 @@ namespace AIUBCourseScheduler.DataAccess
 
                         StudentUserId = reader.GetInt32(1),
 
-                        StudentName =
-                            reader.GetString(2),
+                        StudentName = reader.GetString(2),
 
-                        SavedScheduleId =
-                            reader.GetInt32(3),
+                        SavedScheduleId = reader.GetInt32(3),
 
-                        ScheduleName =
-                            reader.GetString(4),
+                        ScheduleName = reader.GetString(4),
 
-                        RequestStatus =
-                            reader.GetString(5),
+                        RequestStatus = reader.GetString(5),
 
-                        SubmittedAt =
-                            reader.GetDateTime(6),
+                        SubmittedAt = reader.GetDateTime(6),
 
-                        AdminComment =
-                            reader.IsDBNull(7)
-                            ? ""
-                            : reader.GetString(7)
+                        AdminComment = reader.IsDBNull(7) ? "" : reader.GetString(7)
                     });
             }
 
@@ -780,24 +621,18 @@ namespace AIUBCourseScheduler.DataAccess
 
 
 
-        public static bool ApproveScheduleRequest(
-    int requestId,
-    int adminId)
+        public static bool ApproveScheduleRequest(int requestId, int adminId)
         {
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
             connection.Open();
 
 
-            using SqlTransaction transaction =
-                connection.BeginTransaction();
+            using SqlTransaction transaction = connection.BeginTransaction();
 
 
             try
             {
-
-                // Check section capacity before approval
 
                 string capacityCheckQuery = @"
 SELECT COUNT(*)
@@ -818,20 +653,13 @@ AND ISNULL(CO.EnrolledCount,0) >= CO.Capacity
 ";
 
 
-                using SqlCommand capacityCommand =
-                    new SqlCommand(
-                        capacityCheckQuery,
-                        connection,
-                        transaction);
+                using SqlCommand capacityCommand = new SqlCommand(capacityCheckQuery, connection, transaction);
 
 
-                capacityCommand.Parameters.AddWithValue(
-                    "@RequestId",
-                    requestId);
+                capacityCommand.Parameters.AddWithValue("@RequestId", requestId);
 
 
-                int fullSections =
-                    (int)capacityCommand.ExecuteScalar();
+                int fullSections = (int)capacityCommand.ExecuteScalar();
 
 
                 if (fullSections > 0)
@@ -841,112 +669,82 @@ AND ISNULL(CO.EnrolledCount,0) >= CO.Capacity
 
 
 
-                // Update request status
-
                 string updateRequest = @"
-UPDATE ScheduleRequests
-SET
-    RequestStatus='Approved',
-    ReviewedAt=SYSUTCDATETIME(),
-    ReviewedByUserId=@AdminId
+                                    UPDATE ScheduleRequests
+                                    SET
+                                        RequestStatus='Approved',
+                                        ReviewedAt=SYSUTCDATETIME(),
+                                        ReviewedByUserId=@AdminId
 
-WHERE RequestId=@RequestId
-";
-
-
-                using SqlCommand cmd =
-                    new SqlCommand(
-                        updateRequest,
-                        connection,
-                        transaction);
+                                    WHERE RequestId=@RequestId
+                                    ";
 
 
-                cmd.Parameters.AddWithValue(
-                    "@AdminId",
-                    adminId);
+                using SqlCommand cmd = new SqlCommand(updateRequest, connection, transaction);
 
-                cmd.Parameters.AddWithValue(
-                    "@RequestId",
-                    requestId);
+
+                cmd.Parameters.AddWithValue("@AdminId", adminId);
+
+                cmd.Parameters.AddWithValue("@RequestId", requestId);
 
 
                 cmd.ExecuteNonQuery();
 
 
 
-
-                // Update saved schedule status
-
                 string updateSchedule = @"
-UPDATE SavedSchedules
-SET Status='Approved'
+                                        UPDATE SavedSchedules
+                                        SET Status='Approved'
 
-WHERE SavedScheduleId =
-(
-    SELECT SavedScheduleId
-    FROM ScheduleRequests
-    WHERE RequestId=@RequestId
-)
-";
-
-
-                using SqlCommand cmd2 =
-                    new SqlCommand(
-                        updateSchedule,
-                        connection,
-                        transaction);
+                                        WHERE SavedScheduleId =
+                                        (
+                                            SELECT SavedScheduleId
+                                            FROM ScheduleRequests
+                                            WHERE RequestId=@RequestId
+                                        )
+                                        ";
 
 
-                cmd2.Parameters.AddWithValue(
-                    "@RequestId",
-                    requestId);
+                using SqlCommand cmd2 = new SqlCommand(updateSchedule, connection, transaction);
+
+
+                cmd2.Parameters.AddWithValue("@RequestId", requestId);
 
 
                 cmd2.ExecuteNonQuery();
 
 
 
-
-                // Increase section enrolled count
-
                 string updateEnrollment = @"
-UPDATE CourseOfferings
-SET EnrolledCount = ISNULL(EnrolledCount,0) + 1
+                                            UPDATE CourseOfferings
+                                            SET EnrolledCount = ISNULL(EnrolledCount,0) + 1
 
-WHERE OfferingId IN
-(
-    SELECT CO.OfferingId
-    FROM SavedScheduleDetails SSD
+                                            WHERE OfferingId IN
+                                            (
+                                                SELECT CO.OfferingId
+                                                FROM SavedScheduleDetails SSD
 
-    INNER JOIN CourseOfferings CO
-    ON SSD.CourseId = CO.CourseId
-    AND SSD.Section = CO.Section
+                                                INNER JOIN CourseOfferings CO
+                                                ON SSD.CourseId = CO.CourseId
+                                                AND SSD.Section = CO.Section
 
-    WHERE SSD.SavedScheduleId =
-    (
-        SELECT SavedScheduleId
-        FROM ScheduleRequests
-        WHERE RequestId = @RequestId
-    )
-)
-";
-
-
-                using SqlCommand cmd3 =
-                    new SqlCommand(
-                        updateEnrollment,
-                        connection,
-                        transaction);
+                                                WHERE SSD.SavedScheduleId =
+                                                (
+                                                    SELECT SavedScheduleId
+                                                    FROM ScheduleRequests
+                                                    WHERE RequestId = @RequestId
+                                                )
+                                            )
+                                            ";
 
 
-                cmd3.Parameters.AddWithValue(
-                    "@RequestId",
-                    requestId);
+                using SqlCommand cmd3 = new SqlCommand(updateEnrollment, connection, transaction);
+
+
+                cmd3.Parameters.AddWithValue("@RequestId", requestId);
 
 
                 cmd3.ExecuteNonQuery();
-
-
 
                 transaction.Commit();
 
@@ -963,13 +761,9 @@ WHERE OfferingId IN
 
 
 
-        public static bool RejectScheduleRequest(
-            int requestId,
-            int adminId,
-            string comment)
+        public static bool RejectScheduleRequest(int requestId, int adminId, string comment)
         {
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
 
             connection.Open();
@@ -988,23 +782,16 @@ WHERE OfferingId IN
     ";
 
 
-            using SqlCommand command =
-                new SqlCommand(query, connection);
+            using SqlCommand command = new SqlCommand(query, connection);
 
 
-            command.Parameters.AddWithValue(
-                "@AdminId",
-                adminId);
+            command.Parameters.AddWithValue("@AdminId", adminId);
 
 
-            command.Parameters.AddWithValue(
-                "@Comment",
-                comment);
+            command.Parameters.AddWithValue("@Comment", comment);
 
 
-            command.Parameters.AddWithValue(
-                "@RequestId",
-                requestId);
+            command.Parameters.AddWithValue("@RequestId", requestId);
 
 
             return command.ExecuteNonQuery() > 0;
@@ -1013,54 +800,48 @@ WHERE OfferingId IN
         public static List<SavedScheduleDetailViewModel> GetRequestCourses(
     int savedScheduleId)
         {
-            List<SavedScheduleDetailViewModel> courses =
-                new List<SavedScheduleDetailViewModel>();
+            List<SavedScheduleDetailViewModel> courses = new List<SavedScheduleDetailViewModel>();
 
-            using SqlConnection connection =
-                DatabaseConnection.GetConnection();
+            using SqlConnection connection = DatabaseConnection.GetConnection();
 
             connection.Open();
 
 
             string query = @"
                     SELECT 
-    CourseTitle,
-    Section,
-    Day,
-    StartTime,
-    EndTime,
-    Room
-FROM
-(
-    SELECT DISTINCT
-        C.CourseTitle,
-        SSD.Section,
-        SSD.Day,
-        SSD.StartTime,
-        SSD.EndTime,
-        SSD.Room
-    FROM SavedScheduleDetails SSD
-    JOIN Courses C
-    ON SSD.CourseId = C.CourseId
-    WHERE SSD.SavedScheduleId = @SavedScheduleId
-) AS Result
+                    CourseTitle,
+                    Section,
+                    Day,
+                    StartTime,
+                    EndTime,
+                    Room
+                FROM
+                (
+                    SELECT DISTINCT
+                        C.CourseTitle,
+                        SSD.Section,
+                        SSD.Day,
+                        SSD.StartTime,
+                        SSD.EndTime,
+                        SSD.Room
+                    FROM SavedScheduleDetails SSD
+                    JOIN Courses C
+                    ON SSD.CourseId = C.CourseId
+                    WHERE SSD.SavedScheduleId = @SavedScheduleId
+                ) AS Result
 
-ORDER BY StartTime
+                ORDER BY StartTime
 
-    ";
-
-
-            using SqlCommand command =
-                new SqlCommand(query, connection);
+                    ";
 
 
-            command.Parameters.AddWithValue(
-                "@SavedScheduleId",
-                savedScheduleId);
+            using SqlCommand command = new SqlCommand(query, connection);
 
 
-            using SqlDataReader reader =
-                command.ExecuteReader();
+            command.Parameters.AddWithValue("@SavedScheduleId", savedScheduleId);
+
+
+            using SqlDataReader reader = command.ExecuteReader();
 
 
             while (reader.Read())
