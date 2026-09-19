@@ -46,8 +46,7 @@ namespace AIUBCourseScheduler.DataAccess
                     );
                 END;";
 
-            using SqlCommand command =
-                new SqlCommand(query, connection);
+            using SqlCommand command = new SqlCommand(query, connection);
 
             command.ExecuteNonQuery();
         }
